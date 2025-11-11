@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anutej Kardele - Coming Soon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ef4444 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 800px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.95;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            margin-bottom: 3rem;
+            opacity: 0.8;
+        }
+
+        .construction-icon {
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .status-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem auto;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .status-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .status-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #fbbf24, #f59e0b);
+            border-radius: 10px;
+            width: 30%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        60a5fa,
+        #3b82f6);
+        border-radius: 10px;
+        width: 35%;
+        animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-weight: 500;
+        }
+
+        .contact-link:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer {
+            margin-top: 3rem;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Animated background particles */
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 15s infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-100px) rotate(180deg);
+            }
+        }
+
+        .particle:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            left: 10%;
+            top: 20%;
+            animation-delay: 0s;
+        }
+
+        .particle:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            right: 15%;
+            top: 40%;
+            animation-delay: 2s;
+        }
+
+        .particle:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            left: 20%;
+            bottom: 20%;
+            animation-delay: 4s;
+        }
+
+        .particle:nth-child(4) {
+            width: 70px;
+            height: 70px;
+            right: 10%;
+            bottom: 30%;
+            animation-delay: 6s;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            .construction-icon {
+                font-size: 3.5rem;
+            }
+
+            .contact-links {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+
+    <div class="container">
+        <div class="construction-icon">🚧</div>
+
+        <div class="logo">Anutej Kardele</div>
+        <div class="tagline">Software Developer</div>
+        <div class="subtitle">Computer Science Graduate Student @ University at Buffalo</div>
+
+        <div class="status-box">
+            <div class="status-title">🔨 Portfolio Under Construction</div>
+            <div class="status-text">
+                I'm currently building my portfolio website to showcase my software development projects,
+                technical skills, and professional experience. Stay tuned!
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <div class="status-text" style="font-size: 0.9rem;">
+                Setting up domain • Designing layout • Coming soon...
+            </div>
+        </div>
+
+        <div class="contact-links">
+            <a href="mailto:anutej.kardele@gmail.com" class="contact-link">📧 Email</a>
+            <a href="https://linkedin.com/in/anutej-kardele" class="contact-link" target="_blank">💼 LinkedIn</a>
+            <a href="https://github.com/anutej-kardele" class="contact-link" target="_blank">💻 GitHub</a>
+        </div>
+
+        <div class="footer">
+            © 2025 Anutej Kardele. Website launching soon.
+        </div>
+    </div>
+</body>
+
+</html>
