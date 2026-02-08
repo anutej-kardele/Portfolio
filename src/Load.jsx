@@ -6,7 +6,7 @@ const Load = () => {
     // Animate the progress bar on load
     useEffect(() => {
         const timer = setTimeout(() => {
-            setProgress(68); // Set your "completion percentage" here
+            setProgress(68);
         }, 100);
         return () => clearTimeout(timer);
     }, []);
@@ -15,16 +15,22 @@ const Load = () => {
         <>
             <style>{`
         .vscode-construction-wrapper {
-            position: fixed;
-            inset: 0;
-            background-color: #1e1e1e; /* VS Code Editor Background */
-            color: #d4d4d4;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            
+            /* CHANGED: Use variables for background and text */
+            background-color: var(--editor-background);
+            color: var(--text-color);
+            
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-            z-index: 9999;
+            z-index: 10;
         }
 
         .terminal-box {
@@ -34,30 +40,35 @@ const Load = () => {
         }
 
         .command-text {
-            color: #dcdcaa; /* VS Code Yellow for commands */
+            color: var(--function-yellow); /* Mapped to yellow variable */
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
         }
 
         .comment {
-            color: #6a9955; /* VS Code Green for comments */
+            color: var(--comment-green); /* Mapped to green variable */
             margin-bottom: 0.5rem;
             font-size: 0.9rem;
         }
 
         .variable {
-            color: #9cdcfe; /* Light Blue */
+            color: var(--variable-blue); /* Mapped to variable blue */
         }
 
         .string {
-            color: #ce9178; /* Orange/Red string color */
+            color: var(--string-text); /* Mapped to string text */
+        }
+
+        .keyword {
+            color: var(--storage-blue); /* Added class for 'const' */
         }
 
         /* Progress Bar Container */
         .progress-container {
             width: 100%;
             height: 6px;
-            background-color: #3c3c3c; /* Darker track */
+            /* CHANGED: Use border-grey so it's visible in both light/dark modes */
+            background-color: var(--border-grey); 
             border-radius: 3px;
             margin-top: 1rem;
             margin-bottom: 0.5rem;
@@ -67,8 +78,8 @@ const Load = () => {
         /* The Moving Bar */
         .progress-fill {
             height: 100%;
-            background-color: #007acc; /* VS Code Blue */
-            width: 0%; /* Starts at 0 */
+            background-color: var(--accent-blue); /* VS Code Blue variable */
+            width: 0%; 
             transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
             border-radius: 3px;
             box-shadow: 0 0 10px rgba(0, 122, 204, 0.5);
@@ -80,13 +91,14 @@ const Load = () => {
             font-size: 0.85rem;
             opacity: 0.8;
             margin-top: 5px;
+            color: var(--text-color);
         }
 
         .blinking-cursor {
             display: inline-block;
             width: 8px;
             height: 15px;
-            background-color: #d4d4d4;
+            background-color: var(--text-color); /* Cursor matches text color */
             animation: blink 1s step-end infinite;
             vertical-align: middle;
             margin-left: 5px;
@@ -99,13 +111,12 @@ const Load = () => {
 
             <div className="vscode-construction-wrapper">
                 <div className="terminal-box">
-                    {/* Fake Code Snippet Look */}
                     <div className="comment">// Initializing Portfolio V1.0...</div>
                     <div className="command-text">
-                        <span style={{ color: '#569cd6' }}>const</span> <span className="variable">status</span> = <span className="string">"Under Construction"</span>;
+                        {/* Replaced inline styles with classes mapped to variables */}
+                        <span className="keyword">const</span> <span className="variable">status</span> = <span className="string">"Under Construction"</span>;
                     </div>
 
-                    {/* Progress Section */}
                     <div className="progress-container">
                         <div
                             className="progress-fill"
@@ -114,12 +125,12 @@ const Load = () => {
                     </div>
 
                     <div className="status-line">
-                        <span>Compiling assets...</span>
+                        <span>Developing assets...</span>
                         <span>{progress}% Done</span>
                     </div>
 
-                    <div style={{ marginTop: '2rem', fontSize: '0.9rem', opacity: 0.6 }}>
-                        <span style={{ color: '#569cd6' }}>➜</span>  ~  cd /anutej-portfolio<span className="blinking-cursor"></span>
+                    <div style={{ marginTop: '2rem', fontSize: '0.9rem', opacity: 0.6, color: 'var(--text-color)' }}>
+                        <span className="keyword">➜</span>  ~  cd /anutej-portfolio<span className="blinking-cursor"></span>
                     </div>
                 </div>
             </div>

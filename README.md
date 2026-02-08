@@ -1,16 +1,68 @@
-# React + Vite
+# 👨‍💻 Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 🔴 **Live Demo:** <a href="https://anutej.us" target="_blank">anutej.us</a> 
 
-Currently, two official plugins are available:
+> A personal portfolio website built with **React + Vite**, designed to mimic the developer experience of Visual Studio Code.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📖 About The Project
 
-## React Compiler
+This isn't just a static resume—it's an interactive experience hosted live at **[anutej.us](https://anutej.us)**.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+I built this portfolio to reflect the environment where developers spend most of their time: the IDE. 
 
-## Expanding the ESLint configuration
+The application features a fully functional "Editor" interface, a file explorer for navigation, and a **custom-built AI Chatbot** powered by Google Gemini that can answer questions about my skills, experience, and background in real-time.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### ✨ Key Features
+
+* **VS Code Aesthetic**: A pixel-perfect recreation of the VS Code UI, including the sidebar, tabs, and status bar.
+* **🤖 Integrated AI Assistant**: A built-in chat interface powered by **Google Gemini (GenAI SDK)**. It acts as a virtual assistant to answer questions about my resume.
+* **🌗 Dynamic Theming**: Fully supported **Light & Dark modes** that instantly switch the entire IDE color palette (editor, sidebar, terminal).
+* **Interactive Terminal**: A custom loading screen and status updates that mimic a terminal build process.
+* **React + Vite**: Blazing fast performance and hot module replacement.
+
+---
+
+## 🛠️ Tech Stack
+
+* **Framework**: [React](https://react.dev/)
+* **Build Tool**: [Vite](https://vitejs.dev/)
+* **AI Integration**: [Google Generative AI SDK (@google/genai)](https://www.npmjs.com/package/@google/genai)
+* **Styling**: CSS Variables & Flexbox (Custom theming engine)
+* **Icons**: [React Icons](https://react-icons.github.io/react-icons/) (VScode set)
+
+---
+
+## 💻 Run Locally (Optional)
+
+If you want to explore the code or run this locally:
+
+1.  **Clone the repository**
+    ```bash
+    git clone [https://github.com/anutej-kardele/Portfolio.git](https://github.com/anutej-kardele/Portfolio.git)
+    cd Portfolio
+    ```
+
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Setup Environment**
+    You will need a Google Gemini API key in a `.env` file to make the Chatbot work locally.
+    ```env
+    VITE_GEMINI_API_KEY=your_key_here
+    ```
+
+4.  **Start the Server**
+    ```bash
+    npm run dev
+    ```
+
+---
+
+## 📬 Contact
+
+**Anutej Kardele** GitHub: [@anutej-kardele](https://github.com/anutej-kardele)  
+Website: [anutej.us](https://anutej.us)
+
+---
