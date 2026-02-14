@@ -1,3 +1,7 @@
+@import "./css/Prompter.css";
+@import "./css/Footer.css";
+@import "./css/Navigator.css";
+
 :root {
   --keyword-purple: #C586C0;
   --variable-blue: #9CDCFE;
@@ -13,6 +17,11 @@
   --border-grey: #444444;
   --accent-blue: #007ACC;
   --terminal-success: #4EC9B0;
+  --sidebar-button: #FFFFFF;
+  --ai-box: #3C3C3C;
+  --ai-box-text: #CCCCCC;
+  --hover: rgba(255, 255, 255, 0.2);
+  --hover-light: rgba(255, 255, 255, 0.025);
 }
 
 [data-theme='dark'] {
@@ -30,6 +39,11 @@
   --border-grey: #E5E5E5;
   --accent-blue: #007ACC;
   --terminal-success: #008000;
+  --sidebar-button: #1E1E1E;
+  --ai-box: #fefefe;
+  --ai-box-text: #000000;
+  --hover: rgba(0, 0, 0, 0.2);
+  --hover-light: rgba(0, 0, 0, 0.05);
 }
 
 body {
@@ -39,117 +53,20 @@ body {
   font-family: sans-serif;
 }
 
-.footer {
-  height: 2rem;
-  width: 100%;
-  background-color: var(--accent-blue);
+.directory {
   position: fixed;
-
-  bottom: 0;
-  left: 0;
-  font-size: 14px;
-  color: white;
-  align-content: center;
-}
-
-.header {
-  height: 100%;
-  width: 4rem;
-  background-color: var(--sidebar-background);
-  position: fixed;
-  left: 0;
+  left: 4rem;
   top: 0;
-  padding-top: 1rem;
-
+  width: 18rem;
+  height: calc(100vh - 2rem);
+  background-color: var(--sidebar-background);
   border-right: 0.1rem solid var(--border-grey);
 }
 
-.transparentButton {
-  background: transparent;
-  border: none;
-  color: white;
-  cursor: pointer;
+.terminal {
+  background-color: var(--sidebar-background);
+  position: fixed;
+  height: 18rem;
+  bottom: 2rem;
+  border-top: 0.1rem solid var(--border-grey);
 }
-
-@media (max-height: 700px) {
-  .footer {
-    height: 1.5rem;
-  }
-}
-
-
-/*
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-
-button:hover {
-  border-color: #646cff;
-}
-
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-
-  a:hover {
-    color: #747bff;
-  }
-
-  button {
-    background-color: #f9f9f9;
-  }
-}
-*/

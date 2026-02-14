@@ -1,0 +1,653 @@
+{
+  "personal_information": {
+    "full_legal_name": "Anutej Sachin Kardele",
+    "date_of_birth": "2000-08-09",
+    "age": 25,
+    "nationality": "Indian",
+    "gender": "Male",
+    "contact": {
+      "primary_email": "anutej.kardele@gmail.com",
+      "academic_email": "anutejsa@buffalo.edu",
+      "phone_us": "+1-716-750-4547",
+      "phone_india": "+91-740-017-5500"
+    },
+    "addresses": {
+      "india_primary": {
+        "type": "Legal/Familial Residence",
+        "address": "Flat No. 11, Siddhi Vinayak Co-Op Housing Society, Building No. 11, Bhaijivanji Lane, Opposite Zavaba Ram Mandir, Thakurdwar, Mumbai, Maharashtra",
+        "pin": "400002",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "country": "India"
+      },
+      "india_secondary": {
+        "type": "Residential Anchor",
+        "address": "401 Elenza, Sayani Road, Khed Galli, Prabhadevi, Mumbai, Maharashtra",
+        "pin": "400025",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "country": "India"
+      },
+      "usa_current": {
+        "type": "Graduate Student Location",
+        "address": "45 Merrimac St, Unit 1",
+        "zip_code": "14214",
+        "city": "Buffalo",
+        "state": "New York",
+        "country": "USA"
+      }
+    },
+    "family": {
+      "father": "Sachin Anant Kardele",
+      "mother": "Ujjwala Sachin Kardele",
+      "sister": "Ritika Kardele"
+    },
+    "university_identifiers": {
+      "ubit_name": "anutejsa",
+      "ub_person_number": "50672576"
+    }
+  },
+  "education": {
+    "graduate": {
+      "institution": "University at Buffalo (SUNY)",
+      "degree": "Master of Science (M.S.)",
+      "major": "Computer Science",
+      "specialization": "Systems Track",
+      "start_date": "2025-08",
+      "expected_graduation": "2026-12",
+      "current_gpa": 3.750,
+      "gpa_scale": 4.0,
+      "location": "Buffalo, New York, USA",
+      "admission_details": {
+        "admitted_semester": "Fall 2025",
+        "recommending_dean": "Kemper Lewis, Dean of School of Engineering and Applied Sciences",
+        "funding_status": "No institutional funding/scholarships/assistantships offered",
+        "academic_advisor": "Ann Mangan"
+      },
+      "coursework": {
+        "fall_2025_year_0": [
+          {
+            "course_code": "CSE 531",
+            "course_name": "Algorithms",
+            "performance": "Excellent"
+          },
+          {
+            "course_code": "CSE 574",
+            "course_name": "Introduction to Machine Learning",
+            "performance": "Excellent",
+            "projects": [
+              "Fully Convolutional Networks (FCNs)",
+              "Convolutional Neural Networks (CNNs) for Multi-class Classification",
+              "Reinforcement Learning - Markov Decision Processes (MDPs)",
+              "SARSA (State-Action-Reward-State-Action) Algorithm Implementation"
+            ],
+            "initial_challenges": "Struggled with rapid pacing and mathematical foundations in Assignment 1 due to lack of prior ML exposure",
+            "outcome": "Excelled in implementation-heavy phases"
+          },
+          {
+            "course_code": "CSE 565",
+            "course_name": "Computer Security"
+          }
+        ],
+        "spring_2026": [
+          {
+            "course_code": "CSE 611",
+            "course_name": "MS Project Development",
+            "description": "Capstone master's project course working with real-world client Hein Online to develop practical software solutions, utilizing collaborative project management and agile development methodologies",
+            "team": "611 Development team",
+            "team_members": [
+              "Anutej Kardele",
+              "Sejal Baser",
+              "Pooja Nemade",
+              "Jay Pathare",
+              "Shubhjyoti Datta Chowdhari"
+            ],
+            "collaboration_platform": "Miro",
+            "client": "Hein Online",
+            "client_contact": "Nishanth Kaladharan"
+          }
+        ],
+        "special_projects": [
+          {
+            "project_name": "Portfolio Website",
+            "description": "Personal portfolio web application developed using React and Vite, featuring an AI-powered chatbot integration using the Gemini API to answer visitor questions about professional experience and projects in real-time",
+            "tech_stack": [
+              "React",
+              "Vite",
+              "JavaScript",
+              "Gemini API",
+              "React Markdown"
+            ],
+            "key_features": [
+              "Interactive AI chatbot for answering resume-related questions",
+              "RAG (Retrieval-Augmented Generation) system using structured JSON data",
+              "Markdown-formatted responses with custom styling",
+              "Responsive design with modern UI/UX",
+              "Real-time chat interface with message history"
+            ],
+            "current_status": "In active development",
+            "skills_being_developed": [
+              "Web Development",
+              "Application Development",
+              "AI Integration",
+              "Frontend Engineering",
+              "API Integration"
+            ],
+            "deployment": "GitHub Pages / Open Source Repository"
+          },
+          {
+            "project_name": "Team Ketter - Minecraft Architecture Project",
+            "description": "Collaborative project management and spatial construction assignment within a dedicated Minecraft server, focusing on complex architectural structures while practicing agile project management methodologies and team coordination",
+            "team_members": [
+              "Anutej Kardele (Team Leader for Assignment 2, Co-Leader for Assignment 3)",
+              "Sejal Baser",
+              "Pooja Nemade",
+              "Jay Pathare",
+              "Shubhjyoti Datta Chowdhari"
+            ],
+            "communication_platform": "Discord channel: ketter-builds",
+            "leadership_contributions": [
+              "Distributed technical workloads",
+              "Defined project success metrics",
+              "Mitigated project risks",
+              "Identified skill gaps in team",
+              "Managed excessive perfectionism",
+              "Maintained Gantt chart schedules"
+            ]
+          }
+        ]
+      }
+    },
+    "undergraduate": {
+      "institution": "Vellore Institute of Technology (VIT)",
+      "campus": "Bhopal, India",
+      "degree": "Bachelor of Technology (B.Tech.)",
+      "major": "Computer Science Engineering",
+      "specialization": "Gaming Technology",
+      "start_date": "2018-07",
+      "end_date": "2022-05",
+      "cgpa": 7.70,
+      "cgpa_scale": 10.0,
+      "significance": "Strategic selection of Gaming Technology specialization aligned with personal interest in video games, resulting in dramatic academic recovery",
+      "curriculum_foundations": [
+        "Data Structures and Algorithms (DSA)",
+        "Object-Oriented Programming (OOP)",
+        "Software Architecture"
+      ],
+      "key_achievement": {
+        "event": "Smart India Hackathon 2020",
+        "result": "National Winner (1st Place)",
+        "competitors": "Over 1,000 competing teams",
+        "problem_statement": "SG66 issued by Ministry of Micro, Small and Medium Enterprises (MSME)",
+        "solution": "VR Fire Safety & Evacuation Simulator",
+        "description": "Data-driven system analyzing user performance in emergency scenarios with live actionable feedback"
+      }
+    },
+    "higher_secondary": {
+      "institution": "Navneet Junior College",
+      "location": "Mumbai, India",
+      "qualification": "Higher Secondary Certificate (Class 12)",
+      "completion_year": 2018,
+      "cgpa": 5.60,
+      "cgpa_scale": 10.0,
+      "significance": "Academic inflection point that catalyzed strategic realignment of study habits and professional focus"
+    },
+    "secondary": {
+      "institution": "St. Xavier's High School",
+      "location": "Mumbai, India",
+      "qualification": "Secondary School Certificate (Class 10)",
+      "completion_year": 2016,
+      "cgpa": 7.80,
+      "cgpa_scale": 10.0
+    },
+    "standardized_tests": {
+      "gre": {
+        "test_date": "2024-10-14",
+        "test_center": "STN20633A (World Assessments), India",
+        "scores": {
+          "quantitative_reasoning": {
+            "score": 160,
+            "percentile": 53
+          },
+          "verbal_reasoning": {
+            "score": 137,
+            "percentile": 5
+          },
+          "analytical_writing": {
+            "score": 2.5,
+            "percentile": 8
+          }
+        }
+      },
+      "ielts": {
+        "test_date": "2024-11-13",
+        "overall_band": 6.5,
+        "cefr_level": "B2",
+        "component_scores": {
+          "reading": 6.5,
+          "writing": 6.0,
+          "speaking": 7.0,
+          "listening": 6.5
+        }
+      }
+    }
+  },
+  "professional_experience": {
+    "total_years": "~3 years",
+    "positions": [
+      {
+        "company": "Simbott Technologies LLP",
+        "position": "Unity VR Developer",
+        "employment_type": "Full-time",
+        "location": "Andheri East, Mumbai, India",
+        "start_date": "2024-03-04",
+        "end_date": "2025-06-14",
+        "resignation_submitted": "2025-04-30",
+        "resignation_accepted": "2025-05-08",
+        "hr_manager": "Rajendra Gaikwad",
+        "responsibilities": [
+          "Independently architected and delivered comprehensive suite of interactive VR training simulations",
+          "Enhanced vocational skill acquisition through immersive environments",
+          "Engineered software interfaces for custom sensory controllers",
+          "Supported multiple spatial computing platforms (Meta Quest, HTC Vive)",
+          "Enforced software quality assurance standards",
+          "Active participation in peer code reviews",
+          "Maintained strict version control using Git"
+        ],
+        "key_projects": [
+          {
+            "name": "VR Welding Simulation",
+            "description": "Immersive high-stakes training environment with immediate objective data-driven feedback on welding technique",
+            "technical_innovation": "Highly reusable component-based software architecture allowing rapid addition/removal of weld parts and training scenarios",
+            "business_impact": "Significantly decreased deployment timeline for custom client projects"
+          },
+          {
+            "name": "Lathe & Milling Machine Simulation",
+            "description": "Procedurally complex industrial simulator requiring physical interaction with virtual control panels to set up heavy machinery according to precise mathematical tasks"
+          },
+          {
+            "name": "Safety and Inspection Modules",
+            "description": "Standardized corporate training environments",
+            "modules": [
+              "Comprehensive fire safety training",
+              "Motor inspection modules"
+            ]
+          }
+        ],
+        "hardware_integration": [
+          "Custom sensory controllers for Oculus (Meta Quest) SDK",
+          "Custom sensory controllers for SteamVR (HTC Vive) architecture"
+        ],
+        "exit_documentation": [
+          "Welding Spray documentation",
+          "Welding Simulator MR Documentation",
+          "Project handover to successors: Mayur and Shubham"
+        ]
+      },
+      {
+        "company": "Tecknotrove System Pvt Ltd",
+        "position": "Junior Developer",
+        "employment_type": "Full-time",
+        "location": "Mumbai, India",
+        "start_date": "2022-07-27",
+        "end_date": "2023-11-06",
+        "responsibilities": [
+          "Developed core software mechanics for high-fidelity industrial and military training simulators",
+          "Focused on complex vehicle driving dynamics",
+          "Engineered VR weapon systems"
+        ],
+        "major_achievements": [
+          {
+            "achievement": "Engine Infrastructure Upgrade and Hardware Integration",
+            "description": "Comprehensive migration of legacy simulation project from Unity 5.6 to Unity 2019",
+            "technical_complexity": [
+              "Resolution of severe package deprecation conflicts",
+              "Revitalization of discarded software dependencies",
+              "Enhanced systemic stability"
+            ],
+            "hardware_integration": "Engineered low-level software-to-hardware interfaces for physical simulation equipment (steering columns, haptic weapon replicas) with zero-latency data communication"
+          },
+          {
+            "achievement": "Pixel-Perfect UV Texture Coordinate Scoring System",
+            "problem_identified": "Traditional VR weapon simulators relied on arrays of invisible physics colliders for projectile hit detection - computationally expensive and prone to boundary clipping errors",
+            "solution": "Innovated dynamic pixel-perfect scoring system leveraging texture coordinates (UV coordinates)",
+            "methodology": [
+              "Generated discrete color-coded reference map mapped to target object",
+              "Used Unity's Raycast function to detect instantaneous hit points",
+              "Extracted precise UV coordinates from RaycastHit struct",
+              "Algorithmically sampled underlying pixel color at coordinates (e.g., green = 10 points, red = 5 points)",
+              "Instantly computed score"
+            ],
+            "technical_benefits": [
+              "Bypassed physics engine entirely",
+              "Drastically reduced computational overhead",
+              "Guaranteed absolute scoring precision"
+            ]
+          }
+        ]
+      },
+      {
+        "company": "MirrAR Innovation Technologies Private Limited",
+        "position": "Unity Developer Intern",
+        "department": "XR Department",
+        "employment_type": "Internship",
+        "location": "Chennai, Tamil Nadu, India",
+        "start_date": "2021-12-02",
+        "end_date": "2022-06-02",
+        "structure": "2-month unpaid training period + educational internship",
+        "supervisor": "Anuja Prakash (Director)",
+        "responsibilities": [
+          "Collaborated with senior architectural developers",
+          "Engineered prototypes for virtual reality shopping applications",
+          "Utilized C# for core experiential functionalities",
+          "Engineered APIs for robust data management"
+        ],
+        "significance": "Foundational exposure to agile software development lifecycle in corporate environment"
+      }
+    ],
+    "job_market_activity": {
+      "deloitte_negotiation": {
+        "position": "AR/VR Developer",
+        "company": "Deloitte (Global Consulting Firm)",
+        "date": "2024-07",
+        "status": "Negotiations conducted",
+        "significance": "Demonstrates awareness of specialized market value and confident professional posture"
+      }
+    }
+  },
+  "technical_skills": {
+    "programming_languages": {
+      "primary": [
+        "C#",
+        "Java",
+        "Python",
+        "C"
+      ],
+      "secondary": [
+        "JavaScript"
+      ]
+    },
+    "game_engines_and_spatial_computing": [
+      "Unity 3D",
+      "XRInteraction Toolkit",
+      "Oculus (Meta Quest) SDK",
+      "SteamVR (HTC Vive) SDK"
+    ],
+    "software_engineering_tools": [
+      "Git (Version Control)",
+      "Figma (UI/UX)",
+      "Docker"
+    ],
+    "web_frameworks_and_libraries": [
+      "React"
+    ],
+    "methodologies": [
+      "Object-Oriented Programming (OOP)",
+      "Data Structures and Algorithms (DSA)",
+      "Component-Based Systems Architecture",
+      "Agile Software Development Lifecycle"
+    ],
+    "advanced_specializations": [
+      "Hardware-to-Software Interfacing",
+      "Raycast-based UV texture coordinate mathematics",
+      "Machine Learning models (CNNs, FCNs, Reinforcement Learning/SARSA)",
+      "Low-level operating systems programming",
+      "Memory allocation and hardware emulation",
+      "Physics engine optimization",
+      "Kernel-level systems programming"
+    ],
+    "competitive_programming": {
+      "platform": "LeetCode",
+      "username": "Anutej98",
+      "problems_solved": 39,
+      "global_rank": "~1,893,840",
+      "purpose": "Reinforcing algorithmic efficiency and problem-solving skills for technical assessments"
+    }
+  },
+  "projects": {
+    "professional_projects": [
+      {
+        "name": "VR Fire Safety & Evacuation Simulator",
+        "context": "Smart India Hackathon 2020 Winner",
+        "problem_statement": "SG66 - Ministry of MSME",
+        "description": "Comprehensive VR application with data-driven system analyzing user performance in emergency scenarios",
+        "features": [
+          "Live actionable feedback",
+          "Performance analysis"
+        ],
+        "team_members": [
+          "Anutej Kardele",
+          "Hardik Sharma",
+          "Devika Mathur",
+          "Hemang Maan",
+          "Jaishree Shewaramani",
+          "Dushyant Sengupta"
+        ]
+      },
+      {
+        "name": "MRO (Maintenance, Repair, and Operations) Simulator",
+        "type": "Independent VR Module",
+        "description": "Guides aerospace technicians through step-by-step procedural removal and replacement of aircraft wheel assemblies",
+        "technology": "Spatial instructional overlays"
+      },
+      {
+        "name": "Infantry Combat Training Module",
+        "platform": "Meta Quest VR",
+        "description": "Tactical training application with multiple weapon types",
+        "weapon_types": [
+          "Pistols",
+          "Assault rifles",
+          "Sniper rifles"
+        ],
+        "features": [
+          "Static and dynamic targets",
+          "Variable movement patterns",
+          "Automated post-action performance evaluation"
+        ]
+      }
+    ],
+    "consumer_applications": [
+      {
+        "name": "Colour Crypt",
+        "type": "2D Mid-core Narrative Adventure Game",
+        "platform": "Windows",
+        "description": "A 2D narrative-driven adventure game featuring puzzle-solving mechanics and storytelling elements, deployed as a standalone Windows application"
+      },
+      {
+        "name": "3D Chess",
+        "type": "Classic Game Reimagined",
+        "description": "Fully realized 3D rendering with advanced animations"
+      },
+      {
+        "name": "FlashCards",
+        "type": "Native Android Application",
+        "platform": "Android",
+        "description": "A mobile learning application designed to optimize vocabulary retention through active recall methodology, featuring customizable flashcard decks for efficient memorization",
+        "purpose": "Optimize vocabulary retention through active recall"
+      }
+    ]
+  },
+  "online_presence": {
+    "portfolio_websites": {
+      "legacy": "https://anutejkardele.wixsite.com/anutej-kardele/about",
+      "current": {
+        "domain": "anutej.us",
+        "repository": "anutej-kardele/Portfolio",
+        "hosting": "GitHub (Open Source)",
+        "features": [
+          "Gemini API integration for natural language queries about background/skills/projects"
+        ]
+      }
+    },
+    "github": {
+      "username": "anutej-kardele",
+      "notable_repositories": [
+        "Portfolio"
+      ],
+      "monitoring": "user-statistician GitHub Action (GraphQL-based language distribution analytics)"
+    },
+    "leetcode": {
+      "username": "Anutej98",
+      "profile_url": "https://leetcode.com/Anutej98/",
+      "problems_solved": 39
+    },
+    "quora": {
+      "activity": "Active 8 years ago (circa 2018)",
+      "expertise": "Hardware compatibility advice for gaming",
+      "example_topics": [
+        "Frame rate optimization",
+        "Legacy hardware performance assessment",
+        "Game compatibility analysis"
+      ]
+    }
+  },
+  "security_incidents": {
+    "api_key_exposure": {
+      "date": "2026-02-08",
+      "incident": "Hardcoded Google Cloud Platform API key in public GitHub repository",
+      "exposed_key": "AIzaSyAtMtZQe8LaolpK-5Sr8WM-RzM4Jyem0ic",
+      "repository": "anutej-kardele/Portfolio",
+      "file": "src/gemini.js",
+      "line": 3,
+      "git_commit": "f1b0e296",
+      "affected_resource": "Default Gemini Project (id: gen-lang-client-0070482249)",
+      "detection_systems": [
+        "Google Cloud Platform Trust & Safety",
+        "GitHub Secret Scanning"
+      ],
+      "required_remediation": [
+        "Rotate and regenerate compromised key",
+        "Delete exposed credentials from all public directories",
+        "Apply strict IP/referrer API key restrictions"
+      ],
+      "lessons_learned": "Real-world learning vector regarding cloud security, credential management, and necessity of .env file abstraction"
+    }
+  },
+  "psychological_profile": {
+    "core_traits": [
+      {
+        "trait": "Drive (Overcoming Odds)",
+        "evidence": "Rebounded from severely depressed higher secondary CGPA (5.60) to 7.70 undergraduate, then 3.750 graduate GPA"
+      },
+      {
+        "trait": "Intellectual Curiosity",
+        "evidence": "Transition from pure game development into complex ML foundations (FCNs, SARSA) and low-level C programming for Pintos OS"
+      },
+      {
+        "trait": "Initiative (Challenging the Status Quo)",
+        "evidence": "Proactively engineered UV texture coordinate raycast scoring system instead of accepting computationally expensive multi-collider standard"
+      },
+      {
+        "trait": "Analytical Rigor",
+        "evidence": "Systematic approach to problem-solving across all projects"
+      },
+      {
+        "trait": "Collaborative Adaptability",
+        "evidence": "Effective team leadership in Team Ketter with empathetic management style"
+      }
+    ],
+    "communication_style": {
+      "characteristics": [
+        "Consistently polite",
+        "Highly structured",
+        "Respectful of organizational hierarchies",
+        "Clear and actionable",
+        "Devoid of emotional volatility"
+      ],
+      "examples": [
+        "Leave requests to Simbott HR",
+        "Course enrollment advice requests to UB advisor Ann Mangan",
+        "Constructive feedback to Professor Vereshchaka"
+      ]
+    },
+    "leadership_style": {
+      "characteristics": [
+        "Strong empathetic capabilities",
+        "Active risk mitigation",
+        "Skill gap identification",
+        "Balance of technical excellence with emotional intelligence"
+      ],
+      "team_management_examples": [
+        "Managed excessive perfectionism in Team Ketter",
+        "Ensured technical meetings remained insightful",
+        "Maintained strict project timelines without alienating peers"
+      ]
+    }
+  },
+  "interests_and_hobbies": {
+    "gaming": {
+      "relationship": "Not merely recreational - fundamental catalyst for entire technical trajectory",
+      "competitive_titles": [
+        "Valorant",
+        "League of Legends"
+      ],
+      "historical_engagement": "Active in online gaming communities 8 years ago",
+      "technical_evolution": "Early obsession with hardware limitations, frame-rate optimization, and rendering efficiency evolved into professional career optimizing physics engines and hardware integrations",
+      "development_philosophy": "Blending technical precision and gamer's intuition"
+    },
+    "sports": {
+      "primary_interest": "Football (enthusiastic fan)"
+    },
+    "reading": {
+      "genre": "Fiction literature",
+      "platforms": [
+        "Spotify Page Match (physical reading synced with audiobooks)"
+      ]
+    },
+    "streaming": {
+      "services": [
+        "Netflix",
+        "SonyLIV",
+        "JioHotstar"
+      ]
+    }
+  },
+  "correspondence_and_advisors": {
+    "academic": [
+      {
+        "name": "Ann Mangan",
+        "role": "Academic Advisor",
+        "institution": "University at Buffalo",
+        "interaction": "Course registration guidance, administrative hold clearance"
+      },
+      {
+        "name": "Professor Alina Vereshchaka",
+        "role": "Course Instructor",
+        "course": "CSE 574 (Machine Learning)",
+        "interaction": "Received detailed feedback email from Anutej regarding course experience"
+      }
+    ]
+  },
+  "notable_accomplishments": {
+    "hackathons": [
+      {
+        "name": "Smart India Hackathon 2020",
+        "result": "National Winner (1st Place)",
+        "scale": "India's largest university-level hackathon",
+        "competing_teams": "Over 1,000 teams",
+        "achievement": "Outperformed all competitors in grand finale"
+      }
+    ],
+    "academic_recovery": {
+      "description": "Dramatic turnaround from 5.60 CGPA in Class 12 to 7.70 in B.Tech and 3.750 in M.S.",
+      "significance": "Demonstrates resilience, strategic realignment, and sustained high achievement"
+    },
+    "technical_innovations": [
+      {
+        "innovation": "Pixel-Perfect UV Texture Coordinate Scoring System",
+        "impact": "Fundamentally optimized VR weapon simulation performance while guaranteeing absolute precision"
+      },
+      {
+        "innovation": "Reusable Component-Based VR Welding Architecture",
+        "impact": "Significantly decreased deployment timeline for custom client projects"
+      }
+    ]
+  },
+  "career_trajectory_analysis": {
+    "progression": "Entry-level internship → Junior Developer → Mid-level Unity VR Developer → Graduate Student (Systems Track)",
+    "total_commercial_experience": "~3 years before transitioning to full-time graduate studies",
+    "specialization_evolution": "Gaming Technology → VR/XR Industrial Simulations → Advanced Systems + Machine Learning",
+    "market_positioning": "Operates at intersection of immersive software engineering, virtual reality architecture, and complex systems development",
+    "future_direction": "Expanding competencies into machine learning, operating systems architecture, and scalable software systems"
+  }
+}
