@@ -71,6 +71,7 @@
     font-size: 14px;
     white-space: pre-wrap;
     word-break: break-word;
+    text-align: left;
 }
 
 .user-message {
@@ -107,4 +108,90 @@
 .spin {
     animation: spin 1s linear infinite;
     display: block;
+}
+
+/* Markdown styling for AI messages */
+.ai-message strong {
+    font-weight: 600;
+    color: var(--accent-blue);
+}
+
+.ai-message em {
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.ai-message ul,
+.ai-message ol {
+    margin-left: 1.2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding-left: 0;
+}
+
+.ai-message li {
+    margin-bottom: 0.4rem;
+    line-height: 1.6;
+}
+
+.ai-message code {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85em;
+}
+
+.ai-message pre {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 0.75rem;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 0.5rem 0;
+}
+
+.ai-message pre code {
+    background-color: transparent;
+    padding: 0;
+}
+
+.ai-message p {
+    margin-bottom: 0.5rem;
+}
+
+.ai-message p:last-child {
+    margin-bottom: 0;
+}
+
+.ai-message h1,
+.ai-message h2,
+.ai-message h3 {
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--accent-blue);
+}
+
+.ai-message h1 {
+    font-size: 1.1em;
+}
+
+.ai-message h2 {
+    font-size: 1.05em;
+}
+
+.ai-message h3 {
+    font-size: 1em;
+}
+
+.ai-message a {
+    color: var(--accent-blue);
+    text-decoration: underline;
+}
+
+.ai-message blockquote {
+    border-left: 3px solid var(--accent-blue);
+    padding-left: 0.75rem;
+    margin: 0.5rem 0;
+    opacity: 0.9;
 }

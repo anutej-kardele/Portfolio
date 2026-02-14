@@ -8,19 +8,24 @@ function Navigator({ showAI, setShowAI, showDirectory, setDirectory, showTermina
         <>
             <header className="header">
 
-                <button style={{ opacity: showDirectory ? '1' : '0.6' }} onClick={() => setDirectory(!showDirectory)} className="transparentButton">
+                <button disabled={true}
+                    onClick={() => setDirectory(!showDirectory)}
+                    className={`transparentButton status-item-header ${showDirectory ? 'active' : ''}`}>
                     {<VscFiles size='1.5rem' />}
                 </button>
 
-                <button style={{ opacity: showAI ? '1' : '0.6' }} onClick={() => setShowAI(!showAI)} className="transparentButton">
+                <button onClick={() => setShowAI(!showAI)}
+                    className={`transparentButton status-item-header ${showAI ? 'active' : ''}`}>
                     {<VscSparkle size='1.5rem' />}
                 </button>
 
-                <button style={{ opacity: showTerminal ? '1' : '0.6' }} onClick={() => setTerminal(!showTerminal)} className="transparentButton">
+                <button disabled={true}
+                    onClick={() => setTerminal(!showTerminal)}
+                    className={`transparentButton status-item-header ${showTerminal ? 'active' : ''}`}>
                     {<VscTerminal size='1.5rem' />}
                 </button>
 
-                <button className="transparentButton">
+                <button className="transparentButton status-item-header ">
                     {<GrCircleInformation size='1.5rem' />}
                 </button>
 

@@ -1,8 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import { VscChromeClose, VscSend, VscLoading } from "react-icons/vsc";
-import { getGeminiResponse } from "./gemini";
+import { getGeminiResponse } from "../utils/gemini";
+import information from "../../information.json";
+import ReactMarkdown from 'react-markdown';
 
-function Prompter({ showAI }) {
+function Prompter({ showAI, setShowAI }) {
 
     const [messages, setMessages] = useState([]);
     const [prompt, setPrompt] = useState('');
@@ -19,10 +21,27 @@ function Prompter({ showAI }) {
     const handleSend = async () => {
         if (!prompt.trim()) return;
 
-        const textToSend = prompt;
+        const currentPage = "Will be implemented soon";
+
+        const textToSend = `You are Anutej Sachin Kardele, speaking directly to visitors on your portfolio website. Use ONLY the following JSON data to answer questions accurately and conversationally.\n
+        IMPORTANT INSTRUCTIONS:
+        - Respond in FIRST PERSON (use "I", "my", "me" instead of "Anutej", "he", "his")
+        - Keep responses CONCISE (2-3 short paragraphs maximum)
+        - Be conversational and friendly
+        - Keep responses CONCISE and to-the-point (2-3 short paragraphs maximum)
+        - Only provide longer responses when the question specifically requires detailed technical explanations \n
+        
+        CONTEXT - Current Page: ${currentPage} \n
+
+        JSON DATA: ${JSON.stringify(information, null, 2)} \n 
+
+        CHAT HISTORY: ${messages.map(msg => `${msg.sender === 'user' ? 'User' : 'AI'}: ${msg.text}`).join('\n')} \n
+
+        USER QUESTION: ${prompt}`;
+
         setPrompt("");
 
-        setMessages(prev => [...prev, { text: textToSend, sender: 'user' }]);
+        setMessages(prev => [...prev, { text: prompt, sender: 'user' }]);
 
         // console.log("--- Sending Prompt ---");
         // console.log("User Input:", prompt);
@@ -30,7 +49,7 @@ function Prompter({ showAI }) {
         setIsLoading(true);
 
         try {
-            const textResponse = await getGeminiResponse(prompt);
+            const textResponse = await getGeminiResponse(textToSend);
 
             // console.log("--- AI Response ---");
             // console.log(textResponse);
@@ -39,6 +58,7 @@ function Prompter({ showAI }) {
 
         } catch (error) {
             console.error("Chat Error:", error);
+            console.error("Full error details:", error.message);
             setMessages(prev => [...prev, { text: "Error: Could not connect to AI.", sender: 'ai' }]);
         } finally {
             setIsLoading(false);
@@ -60,7 +80,7 @@ function Prompter({ showAI }) {
                             CHAT
                         </div>
 
-                        <button className="transparentButton" style={{ position: 'absolute', right: '1rem', top: '1rem' }}>
+                        <button onClick={() => setShowAI(false)} className="transparentButton" style={{ position: 'absolute', right: '1rem', top: '1rem' }}>
                             <VscChromeClose size={'1rem'} />
                         </button>
                     </div>
@@ -83,7 +103,11 @@ function Prompter({ showAI }) {
                                 key={index}
                                 className={`chat-message ${msg.sender === 'user' ? 'user-message' : 'ai-message'}`}
                             >
-                                {msg.text}
+                                {msg.sender === 'ai' ? (
+                                    <ReactMarkdown>{msg.text}</ReactMarkdown>
+                                ) : (
+                                    msg.text
+                                )}
                             </div>
                         ))}
 

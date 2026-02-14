@@ -1,6 +1,6 @@
 import { VscChromeClose } from "react-icons/vsc";
 
-function Terminal({ showTerminal, showDirectory, showAI }) {
+function Terminal({ showTerminal, setTerminal, showDirectory, showAI }) {
     return (
         <>
             {showTerminal && (
@@ -15,7 +15,7 @@ function Terminal({ showTerminal, showDirectory, showAI }) {
                             TERMINAL
                         </div>
 
-                        <button className="transparentButton" style={{ position: 'absolute', right: '1rem', top: '1rem' }}>
+                        <button onClick={() => setTerminal(false)} className="transparentButton" style={{ position: 'absolute', right: '1rem', top: '1rem' }}>
                             <VscChromeClose size={'1rem'} />
                         </button>
                     </div>

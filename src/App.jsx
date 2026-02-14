@@ -1,11 +1,11 @@
 import './App.css'
 import { useState } from 'react';
-import Footer from './Footer';
-import Navigator from './Navigator';
-import Prompter from './Prompter';
-import Directory from './Directory';
-import Terminal from './Terminal';
-import Content from "./Content";
+import Footer from './components/Footer';
+import Navigator from './components/Navigator';
+import Prompter from './components/Prompter';
+import Directory from './components/Directory';
+import Terminal from './components/Terminal';
+import Content from "./components/Content";
 
 // Block with different colors first implementing dark mode  
 
@@ -20,9 +20,9 @@ function App() {
 
       <Content showDirectory={showDirectory} showAI={showAI} showTerminal={showTerminal} />
 
-      <Terminal showTerminal={showTerminal} showDirectory={showDirectory} showAI={showAI} />
+      <Terminal showTerminal={showTerminal} setTerminal={setTerminal} showDirectory={showDirectory} showAI={showAI} />
 
-      <Prompter showAI={showAI} />
+      <Prompter showAI={showAI} setShowAI={setShowAI} />
 
       <Directory showDirectory={showDirectory} />
 

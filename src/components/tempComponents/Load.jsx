@@ -6,7 +6,7 @@ const Load = () => {
     // Animate the progress bar on load
     useEffect(() => {
         const timer = setTimeout(() => {
-            setProgress(68);
+            setProgress(50);
         }, 100);
         return () => clearTimeout(timer);
     }, []);

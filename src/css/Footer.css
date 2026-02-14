@@ -1,0 +1,56 @@
+.footer {
+    height: 2rem;
+    width: 100%;
+    background-color: var(--accent-blue);
+    position: fixed;
+
+    bottom: 0;
+    left: 0;
+    font-size: 14px;
+    color: white;
+    align-content: center;
+
+    border-top: 0.1rem solid var(--border-grey);
+}
+
+.transparentButton {
+    background: transparent;
+    border: none;
+    color: var(--sidebar-button);
+    cursor: pointer;
+}
+
+.transparentButtonFooter {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 0.6rem;
+    gap: 0.4rem;
+
+    cursor: pointer;
+    color: white;
+    background: transparent;
+    border: none;
+    font-size: 0.9rem;
+    text-decoration: none;
+
+    transition: background-color 0.2s ease;
+}
+
+.status-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-height: 700px) {
+    .footer {
+        height: 1.5rem;
+    }
+}

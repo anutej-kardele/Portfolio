@@ -1,6 +1,10 @@
 import { GoogleGenAI } from "@google/genai";
 
-const API_KEY = import.meta.env.VITE_GEMINI_API_KEY || 'AIzaSyAtMtZQe8LaolpK-5Sr8WM-RzM4Jyem0ic';
+const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+
+if (!API_KEY) {
+    console.error("Error: VITE_GEMINI_API_KEY is missing in .env file");
+}
 
 const ai = new GoogleGenAI({ apiKey: API_KEY });
 

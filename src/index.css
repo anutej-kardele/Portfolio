@@ -1,4 +1,6 @@
-@import "./Prompter.css";
+@import "./css/Prompter.css";
+@import "./css/Footer.css";
+@import "./css/Navigator.css";
 
 :root {
   --keyword-purple: #C586C0;
@@ -18,6 +20,8 @@
   --sidebar-button: #FFFFFF;
   --ai-box: #3C3C3C;
   --ai-box-text: #CCCCCC;
+  --hover: rgba(255, 255, 255, 0.2);
+  --hover-light: rgba(255, 255, 255, 0.025);
 }
 
 [data-theme='dark'] {
@@ -38,6 +42,8 @@
   --sidebar-button: #1E1E1E;
   --ai-box: #fefefe;
   --ai-box-text: #000000;
+  --hover: rgba(0, 0, 0, 0.2);
+  --hover-light: rgba(0, 0, 0, 0.05);
 }
 
 body {
@@ -46,37 +52,6 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
   font-family: sans-serif;
 }
-
-.footer {
-  height: 2rem;
-  width: 100%;
-  background-color: var(--accent-blue);
-  position: fixed;
-
-  bottom: 0;
-  left: 0;
-  font-size: 14px;
-  color: white;
-  align-content: center;
-
-  border-top: 0.1rem solid var(--border-grey);
-}
-
-.header {
-  height: 100%;
-  width: 4rem;
-  background-color: var(--sidebar-background);
-  position: fixed;
-  left: 0;
-  top: 0;
-  padding-top: 1rem;
-  gap: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-right: 0.1rem solid var(--border-grey);
-}
-
 
 .directory {
   position: fixed;
@@ -94,24 +69,4 @@ body {
   height: 18rem;
   bottom: 2rem;
   border-top: 0.1rem solid var(--border-grey);
-}
-
-.transparentButton {
-  background: transparent;
-  border: none;
-  color: var(--sidebar-button);
-  cursor: pointer;
-}
-
-.transparentButtonFooter {
-  background: transparent;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-
-@media (max-height: 700px) {
-  .footer {
-    height: 1.5rem;
-  }
 }

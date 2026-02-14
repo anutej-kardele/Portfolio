@@ -1,4 +1,4 @@
-import Load from "./Load";
+import Load from "./tempComponents/Load";
 
 function Content({ showDirectory, showAI, showTerminal }) {
     return (
