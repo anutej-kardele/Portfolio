@@ -1,6 +1,7 @@
 @import "./css/Prompter.css";
 @import "./css/Footer.css";
 @import "./css/Navigator.css";
+@import "./css/Directory.css";
 
 :root {
   --keyword-purple: #C586C0;
@@ -22,9 +23,14 @@
   --ai-box-text: #CCCCCC;
   --hover: rgba(255, 255, 255, 0.2);
   --hover-light: rgba(255, 255, 255, 0.025);
+
+  --list-hover-bg: rgba(0, 0, 0, 0.05);
+  --list-active-bg: rgba(0, 120, 215, 0.15);
+  --list-active-fg: #333333;
+  --list-inactive-selection-bg: #37373D;
 }
 
-[data-theme='dark'] {
+[data-theme='light'] {
   --keyword-purple: #AF00DB;
   --variable-blue: #001080;
   --string-text: #A31515;
@@ -44,6 +50,11 @@
   --ai-box-text: #000000;
   --hover: rgba(0, 0, 0, 0.2);
   --hover-light: rgba(0, 0, 0, 0.05);
+
+  --list-hover-bg: rgba(255, 255, 255, 0.1);
+  --list-active-bg: #aad5ff;
+  --list-active-fg: #FFFFFF;
+  --list-inactive-selection-bg: #c4c4cc;
 }
 
 body {
@@ -53,20 +64,18 @@ body {
   font-family: sans-serif;
 }
 
-.directory {
-  position: fixed;
-  left: 4rem;
-  top: 0;
-  width: 18rem;
-  height: calc(100vh - 2rem);
-  background-color: var(--sidebar-background);
-  border-right: 0.1rem solid var(--border-grey);
-}
-
 .terminal {
   background-color: var(--sidebar-background);
   position: fixed;
-  height: 18rem;
+  height: 15rem;
   bottom: 2rem;
   border-top: 0.1rem solid var(--border-grey);
+}
+
+.contentData {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* background-color: #ff000019; */
 }

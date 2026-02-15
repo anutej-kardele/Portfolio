@@ -14,17 +14,18 @@ function App() {
   const [showAI, setShowAI] = useState(true);
   const [showDirectory, setDirectory] = useState(false);
   const [showTerminal, setTerminal] = useState(false);
+  const [activeFile, setActiveFile] = useState('about');
 
   return (
     <>
 
-      <Content showDirectory={showDirectory} showAI={showAI} showTerminal={showTerminal} />
+      <Content showDirectory={showDirectory} showAI={showAI} showTerminal={showTerminal} activeFile={activeFile} />
 
       <Terminal showTerminal={showTerminal} setTerminal={setTerminal} showDirectory={showDirectory} showAI={showAI} />
 
       <Prompter showAI={showAI} setShowAI={setShowAI} />
 
-      <Directory showDirectory={showDirectory} />
+      <Directory showDirectory={showDirectory} activeFile={activeFile} setActiveFile={setActiveFile} />
 
       <Navigator showAI={showAI} setShowAI={setShowAI} showDirectory={showDirectory} setDirectory={setDirectory} showTerminal={showTerminal} setTerminal={setTerminal} />
 

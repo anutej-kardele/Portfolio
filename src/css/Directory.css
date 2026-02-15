@@ -1,0 +1,71 @@
+.directory {
+    position: fixed;
+    left: 4rem;
+    top: 0;
+    width: 18rem;
+    height: calc(100vh - 2rem);
+    background-color: var(--sidebar-background);
+    border-right: 0.1rem solid var(--border-grey);
+}
+
+.directoryInnerDiv {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    font-size: 0.8rem;
+    padding-bottom: 3px;
+    width: fit-content;
+
+    font-weight: 400;
+    color: var(--text-color);
+    opacity: 0.9;
+    letter-spacing: 1px;
+}
+
+/* Directory Item (Shared) */
+.directory-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    transition: background-color 0.1s;
+    border: 2px solid transparent;
+    margin-left: 1px;
+}
+
+.directory-item:hover {
+    background-color: var(--list-hover-bg);
+}
+
+/* Specific Folder Styling */
+.directory-item.folder {
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+/* Active File (Selected) */
+.directory-item.file.active {
+    background-color: var(--list-inactive-selection-bg);
+    color: var(--text-color);
+
+    border-color: transparent;
+    outline: none;
+    padding-left: 1rem;
+}
+
+.directory:focus-within .directory-item.file.active {
+    background-color: var(--list-active-bg);
+
+    /* border-left: 2px solid var(--accent-blue); */
+    border-color: var(--accent-blue);
+    /* padding-left: calc(1rem - 2px); */
+}
+
+/* Optional: Icon colors if not handled in JS */
+.directory-item svg {
+    flex-shrink: 0;
+    /* Prevents icons from squishing */
+}

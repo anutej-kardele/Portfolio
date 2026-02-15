@@ -8,7 +8,7 @@ function Navigator({ showAI, setShowAI, showDirectory, setDirectory, showTermina
         <>
             <header className="header">
 
-                <button disabled={true}
+                <button disabled={false}
                     onClick={() => setDirectory(!showDirectory)}
                     className={`transparentButton status-item-header ${showDirectory ? 'active' : ''}`}>
                     {<VscFiles size='1.5rem' />}
@@ -19,7 +19,7 @@ function Navigator({ showAI, setShowAI, showDirectory, setDirectory, showTermina
                     {<VscSparkle size='1.5rem' />}
                 </button>
 
-                <button disabled={true}
+                <button disabled={false}
                     onClick={() => setTerminal(!showTerminal)}
                     className={`transparentButton status-item-header ${showTerminal ? 'active' : ''}`}>
                     {<VscTerminal size='1.5rem' />}

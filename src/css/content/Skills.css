@@ -1,0 +1,161 @@
+/* --- 1. Parent Wrapper --- */
+.skills-page-wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 2.5rem;
+    box-sizing: border-box;
+    /* Ensures padding doesn't cause overflow */
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    background-color: var(--background-color);
+}
+
+.skills-header {
+    margin-bottom: 2rem;
+    flex-shrink: 0;
+}
+
+.skills-header h1 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* --- 2. The Main Grid (Fits Parent) --- */
+.skills-main-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+    /* REMOVED: flex: 1 (prevents stretching) */
+    align-items: start;
+    /* Ensures cards don't stretch to match tallest neighbor */
+}
+
+.skill-category-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    /* Slightly tighter vertical padding */
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    /* CRITICAL: Card only takes necessary height */
+    transition: all 0.3s ease;
+}
+
+.skill-category-card:hover {
+    border-color: var(--accent-blue);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* --- UPDATED CARD HEADER ALIGNMENT --- */
+.card-top-section {
+    display: flex;
+    align-items: center;
+    /* Levels the height of icon and text */
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    justify-content: flex-start;
+}
+
+.category-icon-box {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    /* Slightly smaller to match text height better */
+    height: 42px;
+    background: rgba(79, 195, 247, 0.1);
+    border-radius: 8px;
+}
+
+.category-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.category-text h3 {
+    margin: 0;
+    line-height: 1;
+    /* Snaps text to center of icon */
+    font-size: 1.1rem;
+    color: var(--accent-blue);
+}
+
+.category-text p {
+    font-size: 0.75rem;
+    opacity: 0.6;
+    margin-top: 2px;
+}
+
+/* --- 3. Skill Item Rows --- */
+.skills-list-wrapper {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.skill-row {
+    width: 100%;
+    box-sizing: border-box;
+    /* Includes padding in width to prevent overflow */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.8rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 6px;
+}
+
+.skill-row:hover {
+    border-left-color: var(--accent-blue);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.skill-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.skill-detail-text {
+    font-size: 0.7rem;
+    opacity: 0.5;
+    font-family: 'Consolas', monospace;
+}
+
+/* --- 4. Light Mode Visibility Fix --- */
+[data-theme='light'] .skill-category-card {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .skill-row {
+    background: #f8fafc;
+}
+
+/* Ensuring the "Detail" text is visible in Light Mode */
+[data-theme='light'] .skill-detail-text {
+    color: #475569;
+    opacity: 0.8;
+}
+
+[data-theme='light'] .category-text p {
+    color: #64748b;
+}
+
+/* Handle Mobile/Small Screens */
+@media (max-width: 900px) {
+    .skills-main-grid {
+        grid-template-columns: 1fr;
+    }
+}
