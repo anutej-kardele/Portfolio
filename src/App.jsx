@@ -11,17 +11,18 @@ import Content from "./components/Content";
 
 function App() {
 
-  const [showAI, setShowAI] = useState(true);
+  const [showAI, setShowAI] = useState(false);
   const [showDirectory, setDirectory] = useState(false);
-  const [showTerminal, setTerminal] = useState(false);
-  const [activeFile, setActiveFile] = useState('about');
+  const [showTerminal, setTerminal] = useState(true);
+  const [activeFile, setActiveFile] = useState('Project1');
+  const [currentDirectory, setCurrentDirectory] = useState('ANUTEJ');
 
   return (
     <>
 
       <Content showDirectory={showDirectory} showAI={showAI} showTerminal={showTerminal} activeFile={activeFile} />
 
-      <Terminal showTerminal={showTerminal} setTerminal={setTerminal} showDirectory={showDirectory} showAI={showAI} />
+      <Terminal showTerminal={showTerminal} setTerminal={setTerminal} showDirectory={showDirectory} showAI={showAI} currentDirectory={currentDirectory} setActiveFile={setActiveFile} />
 
       <Prompter showAI={showAI} setShowAI={setShowAI} />
 

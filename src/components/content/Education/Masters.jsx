@@ -19,8 +19,8 @@ const Masters = () => {
 
     const ongoingCourses = [
         { name: "Deep Learning", code: "CSE 676" },
-        { name: "Modern Networks", code: "CSE 589" },
-        { name: "MS Project Dev.", code: "CSE 611" },
+        { name: "Modern Network Concepts", code: "CSE 589" },
+        { name: "MS Project Development", code: "CSE 611" },
         { name: "Project Management", code: "EAS 521" }
     ];
 

@@ -3,6 +3,7 @@ import Masters from "./content/Education/Masters";
 import Bachelors from "./content/Education/Bachelors";
 import AboutMe from "./content/Information/About";
 import Skills from "./content/Information/Skills";
+import Hidden from "./content/Hidden";
 
 function Content({ showDirectory, showAI, showTerminal, activeFile }) {
 
@@ -10,7 +11,8 @@ function Content({ showDirectory, showAI, showTerminal, activeFile }) {
         'about': <AboutMe />,
         'skill': <Skills />,
         'masters': <Masters />,
-        'bachelors': <Bachelors />
+        'bachelors': <Bachelors />,
+        'secret': <Hidden />
     };
 
     return (

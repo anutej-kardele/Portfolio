@@ -6,13 +6,18 @@ const FileNode = ({ node, setActiveFile, activeFile, depth = 0 }) => {
 
     const [isOpen, setIsOpen] = useState(node.isOpen || false);
 
-    const paddingLeft = `${1 + (depth * 0.8)}rem`;
+    const paddingLeft = `${0.5 + (depth * 0.8)}rem`;
+
+    if (node.type === 'hiddenFile') return null;
 
     if (node.type === 'folder') {
         return (
             <div>
-
-                <div className="directory-item folder" onClick={() => setIsOpen(!isOpen)} style={{ paddingLeft: '1rem' }} >
+                <div
+                    className="directory-item folder"
+                    onClick={() => setIsOpen(!isOpen)}
+                    style={{ paddingLeft: paddingLeft }}
+                >
                     <span style={{
                         marginRight: '5px',
                         display: 'flex',
@@ -22,13 +27,26 @@ const FileNode = ({ node, setActiveFile, activeFile, depth = 0 }) => {
                     }}>
                         {isOpen ? <VscChevronDown /> : <VscChevronRight />}
                     </span>
-                    <span style={{ fontWeight: 'bold', fontSize: '0.85rem' }}>{node.name}</span>
+                    {/* Make the root folder uppercase for a "Project Root" feel */}
+                    <span style={{
+                        fontWeight: depth === 0 ? '800' : 'bold',
+                        fontSize: '0.85rem',
+                        letterSpacing: depth === 0 ? '0.5px' : 'normal'
+                    }}>
+                        {node.name}
+                    </span>
                 </div>
 
                 {isOpen && (
                     <div>
                         {node.children.map(child => (
-                            <FileNode key={child.id} node={child} setActiveFile={setActiveFile} activeFile={activeFile} depth={depth + 1} />
+                            <FileNode
+                                key={child.id}
+                                node={child}
+                                setActiveFile={setActiveFile}
+                                activeFile={activeFile}
+                                depth={depth + 1}
+                            />
                         ))}
                     </div>
                 )}
