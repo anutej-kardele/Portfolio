@@ -4,7 +4,7 @@ import { getGeminiResponse } from "../utils/gemini";
 import information from "../../information.json";
 import ReactMarkdown from 'react-markdown';
 
-function Prompter({ showAI, setShowAI }) {
+function Prompter({ showAI, setShowAI, activeFile }) {
 
     const [messages, setMessages] = useState([]);
     const [prompt, setPrompt] = useState('');
@@ -21,8 +21,6 @@ function Prompter({ showAI, setShowAI }) {
     const handleSend = async () => {
         if (!prompt.trim()) return;
 
-        const currentPage = "Will be implemented soon";
-
         const textToSend = `You are Anutej Sachin Kardele, speaking directly to visitors on your portfolio website. Use ONLY the following JSON data to answer questions accurately and conversationally.\n
         IMPORTANT INSTRUCTIONS:
         - Respond in FIRST PERSON (use "I", "my", "me" instead of "Anutej", "he", "his")
@@ -31,7 +29,7 @@ function Prompter({ showAI, setShowAI }) {
         - Keep responses CONCISE and to-the-point (2-3 short paragraphs maximum)
         - Only provide longer responses when the question specifically requires detailed technical explanations \n
         
-        CONTEXT - Current Page: ${currentPage} \n
+        CONTEXT - Current Page: ${activeFile} \n
 
         JSON DATA: ${JSON.stringify(information, null, 2)} \n 
 

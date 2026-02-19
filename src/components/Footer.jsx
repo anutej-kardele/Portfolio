@@ -53,8 +53,7 @@ function Footer({ showAI, setShowAI, showTerminal, setTerminal }) {
                             <span>JavaScript JSX</span>
                         </div>
 
-                        <button disabled={true}
-                            style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: showTerminal ? '1' : '0.6' }}
+                        <button style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: showTerminal ? '1' : '0.6' }}
                             onClick={() => setTerminal(!showTerminal)}
                             className='transparentButtonFooter status-item'>
                             {<VscTerminal size={'1rem'} />}
