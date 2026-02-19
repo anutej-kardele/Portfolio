@@ -2,16 +2,29 @@ import React, { useState, useEffect, useRef } from 'react';
 import { FaFileDownload } from 'react-icons/fa';
 import '../../../css/content/About.css';
 
+import image1 from '../../../assets/images/img1.jpg';
+import image2 from '../../../assets/images/img2.jpg';
+import image3 from '../../../assets/images/img3.jpg';
+import image4 from '../../../assets/images/img4.jpg';
+import image5 from '../../../assets/images/img5.jpg';
+import image6 from '../../../assets/images/img6.jpg';
+import image7 from '../../../assets/images/img7.jpg';
+import image8 from '../../../assets/images/img8.jpg';
+
+// Create an array of the imported images
+const profileImages = [image1, image2, image3, image4, image5, image6, image7, image8];
+
 // --- SUB-COMPONENT: TERMINAL TICKER ---
 const TerminalTicker = () => {
     // Data Sequence
     const dataSequence = [
-        { text: "cat achievements.txt", output: "🏆 National Hackathon Winner" },
+        { text: "open achievements.txt", output: "🏆 National Hackathon Winner" },
+        { text: "ls", output: "Listing pages: [Education, Information, Projects]" },
         { text: "uptime --work", output: "3+ Years Building Immersive XR" },
-        { text: "whoami", output: "Dev, Gamer, Football Fan" },
-        { text: "ls", output: "Listing pages: [Home, About, Projects]" },
+        { text: "ai \"whoami?\"", output: "Developer, Gamer, Football Fan" },
         { text: "cd projects", output: "Navigating to Projects..." },
-        { text: "ai \"Who are you?\"", output: "Ask me anything about Anutej!" }
+        { text: "ls -a", output: "Listing pages: [Education, Hidden, Information, Projects]" },
+        { text: "ai \"Who are you?\"", output: "I am a Chatbot, answering question about Anutej" }
     ];
 
     const [msgIndex, setMsgIndex] = useState(0);
@@ -74,8 +87,8 @@ const TerminalTicker = () => {
         <div className="system-ticker-container">
             {/* LINE 1: Prompt & Command */}
             <div className="prompt-line">
-                <span className="prompt-user">root@anutej:</span>
-                <span className="prompt-path">~#</span>
+                <span className="prompt-user">root@anutej: Anutej</span>
+                <span className="prompt-path">%</span>
                 <span className="ticker-text">
                     {displayedCmd}
                     <span className="cursor"></span>
@@ -96,6 +109,16 @@ const About = () => {
 
     const cardRef = useRef(null);
     const [rotate, setRotate] = useState({ x: 0, y: 0 });
+
+    const [currentImgIndex, setCurrentImgIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImgIndex((prevIndex) => (prevIndex + 1) % profileImages.length);
+        }, 3000);
+
+        return () => clearInterval(interval);
+    }, []);
 
     const handleMouseMove = (e) => {
         const card = cardRef.current;
@@ -137,14 +160,14 @@ const About = () => {
                         </p>
                     </div>
 
-                    <div className="cta-row">
+                    {/* <div className="cta-row">
                         <button className="btn-primary" onClick={() => window.open("/resume.pdf", "_blank")}>
                             <FaFileDownload /> Download CV
                         </button>
                         <button className="btn-secondary">
                             View Projects
                         </button>
-                    </div>
+                    </div> */}
 
                     {/* NEW: LIVE TERMINAL DEMO */}
                     <TerminalTicker />
@@ -163,7 +186,15 @@ const About = () => {
                         }}
                     >
                         <div className="image-card-inner">
-                            <img src={profileImage} alt="Anutej Workspace" className="tilt-image" />
+                            {profileImages.map((imgSrc, index) => (
+                                <img
+                                    key={index}
+                                    src={imgSrc}
+                                    alt={`Anutej Workspace ${index}`}
+                                    // Dynamically add the 'active' class
+                                    className={`tilt-image ${index === currentImgIndex ? 'active' : ''}`}
+                                />
+                            ))}
                         </div>
                     </div>
                 </div>

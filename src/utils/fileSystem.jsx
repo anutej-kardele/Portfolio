@@ -5,14 +5,14 @@ import vitLogo from '../assets/vit.png';
 export const fileSystem = [
     {
         id: "root",
-        name: "ANUTEJ",
+        name: "Anutej",
         type: "folder",
         size: "0KB",
         created: "2025-02-14T21:58:00Z",
         isOpen: true,
         children: [
             {
-                id: "info",
+                id: "Information",
                 name: "Information",
                 type: "folder",
                 size: "0KB",
@@ -23,7 +23,7 @@ export const fileSystem = [
                 ]
             },
             {
-                id: "edu",
+                id: "Education",
                 name: "Education",
                 type: "folder",
                 size: "0KB",

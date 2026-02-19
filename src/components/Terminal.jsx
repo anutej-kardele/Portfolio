@@ -2,11 +2,12 @@ import React, { useState, useRef, useEffect } from 'react';
 import { VscChromeClose } from "react-icons/vsc";
 import { handleTerminalCommand } from '../utils/terminalUtils';
 
-function Terminal({ showTerminal, setTerminal, showDirectory, showAI, currentDirectory, setActiveFile }) {
+function Terminal({ showTerminal, setTerminal, showDirectory, showAI, currentDirectory, setActiveFile, setCurrentDirectory, activeFile }) {
     const [inputValue, setInputValue] = useState("");
     const [history, setHistory] = useState([]);
     const inputRef = useRef(null);
     const scrollRef = useRef(null);
+    const [historyIndex, setHistoryIndex] = useState(-1);
 
     // Auto-scroll to bottom when history updates
     useEffect(() => {
@@ -22,22 +23,82 @@ function Terminal({ showTerminal, setTerminal, showDirectory, showAI, currentDir
         }
     }, [showTerminal]);
 
-    const handleKeyDown = (e) => {
+    const handleKeyDown = async (e) => {
         if (e.key === 'Enter') {
             const trimmedInput = inputValue.trim();
             if (trimmedInput === "") return;
+
+            const dirSnapshot = currentDirectory?.name || "Anutej";
 
             // Handle 'clear' internally to reset history
             if (trimmedInput === 'clear') {
                 setHistory([]);
                 setInputValue("");
+                setHistoryIndex(-1);
                 return;
             }
 
-            // Get output from utility and update history
-            const output = handleTerminalCommand(trimmedInput, currentDirectory, setActiveFile);
-            setHistory(prev => [...prev, { command: trimmedInput, result: output }]);
             setInputValue("");
+            setHistoryIndex(-1);
+            const commandId = Date.now();
+
+            setHistory(prev => [...prev, {
+                id: commandId,
+                command: trimmedInput,
+                result: "Communicating with AI payload...", // Temporary loading text
+                directoryName: dirSnapshot
+            }]);
+
+            // // Get output from utility and update history
+            // const output = handleTerminalCommand(trimmedInput, currentDirectory, setActiveFile);
+            // setHistory(prev => [...prev, { command: trimmedInput, result: output }]);
+            // setInputValue("");
+
+            const resultText = await handleTerminalCommand(trimmedInput, currentDirectory, setActiveFile, setCurrentDirector, activeFile);
+
+            setHistory(prev => prev.map(item =>
+                item.id === commandId
+                    ? { ...item, result: resultText }
+                    : item
+            ))
+
+            // setHistory(prev => [...prev, {
+            //     command: trimmedInput,
+            //     result: resultText,
+            //     directoryName: dirSnapshot
+            // }]);
+            // setInputValue("");
+            // setHistoryIndex(-1);
+        }
+        else if (e.key === 'ArrowUp') {
+            e.preventDefault(); // Stops cursor from jumping to the start
+
+            if (history.length === 0) return;
+
+            let newIndex = historyIndex;
+            if (historyIndex === -1) {
+                newIndex = history.length - 1;
+            } else if (historyIndex > 0) {
+                newIndex = historyIndex - 1;
+            }
+
+            setHistoryIndex(newIndex);
+            setInputValue(history[newIndex].command);
+
+        }
+        else if (e.key === 'ArrowDown') {
+            e.preventDefault(); // Stops cursor from jumping to the end
+
+            if (historyIndex === -1) return;
+
+            if (historyIndex < history.length - 1) {
+                const newIndex = historyIndex + 1;
+                setHistoryIndex(newIndex);
+                setInputValue(history[newIndex].command);
+            } else {
+                setHistoryIndex(-1);
+                setInputValue("");
+            }
         }
     };
 
@@ -50,90 +111,71 @@ function Terminal({ showTerminal, setTerminal, showDirectory, showAI, currentDir
         <>
             {showTerminal && (
                 <aside
-                    className='terminal'
+                    className="terminal"
                     style={{
                         left: showDirectory ? '22rem' : '4rem',
                         right: showAI ? '24rem' : '0rem',
-                        cursor: 'text' // Show text cursor everywhere in the box
+                        bottom: '2rem'
                     }}
-                    // Click handler goes here to catch clicks on the background
-                    onClick={handleContainerClick}
+                    onClick={() => inputRef.current?.focus()}
                 >
-                    <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-
-                        {/* HEADER */}
-                        <div style={{
-                            position: 'absolute', left: '1rem', top: '1rem', fontSize: '0.9rem',
-                            borderBottom: '2px solid var(--accent-blue)',
-                            paddingBottom: '3px',
-                            width: 'fit-content'
-                        }}>
-                            TERMINAL
-                        </div>
-
-                        {/* CLOSE BUTTON - Fixed the "e" error here */}
+                    {/* FIXED HEADER */}
+                    <div className="terminal-header-container" style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        padding: '1.2rem',
+                        background: 'var(--bg-color)', /* Keeps header opaque */
+                        // borderBottom: '1px solid rgba(255,255,255,0.1)', /* Optional: adds a clean line */
+                        zIndex: 10
+                    }}>
+                        <div className="terminal-title">TERMINAL</div>
                         <button
-                            onClick={(e) => {
-                                // We must pass 'e' (event) above ^ to use it here v
-                                e.stopPropagation();
-                                setTerminal(false);
-                            }}
-                            className="transparentButton"
-                            style={{ position: 'absolute', right: '1rem', top: '1rem', cursor: 'pointer', zIndex: 10 }}
+                            onClick={(e) => { e.stopPropagation(); setTerminal(false); }}
+                            className="terminal-close"
                         >
                             <VscChromeClose size={'1rem'} />
                         </button>
+                    </div>
 
-                        {/* INPUT AREA */}
-                        <div style={{
-                            marginTop: '3.5rem',
-                            padding: '0 1rem',
-                            display: 'flex',
-                            alignItems: 'center',
-                            fontFamily: "'Consolas', 'Courier New', monospace",
-                            width: '100%',         // Ensure container is full width
-                            boxSizing: 'border-box' // Prevents padding from breaking width
-                        }}>
-                            <span style={{
-                                color: 'var(--text-color)',
-                                fontWeight: 'bold',
-                                marginRight: '10px',
-                                whiteSpace: 'nowrap',
-                                userSelect: 'none' // Prevents selecting the prompt text accidentally 
-                            }}>
-                                root@anutej:~$
-                            </span>
+                    {/* SCROLLABLE CONTENT AREA */}
+                    <div ref={scrollRef} className="terminal-scroll-area">
+                        <div>
+                            {history.map((item, index) => (
+                                <div key={index} className="terminal-history-item">
+                                    <div className="terminal-prompt-line">
+                                        <span className="terminal-prompt-label">root@anutej {item.directoryName} %</span>
+                                        <span className="terminal-prompt-label">{item.command}</span>
+                                    </div>
+                                    {/* {item.result && (
+                                        <div className="terminal-result">{item.result}</div>
+                                    )} */}
+                                    {item.result && typeof item.result === 'string' && (
+                                        <div className="terminal-result">{item.result}</div>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
 
+                        {/* INPUT LINE */}
+                        <div className="terminal-prompt-line">
+                            <span className="terminal-prompt-label">root@anutej {currentDirectory?.name} %</span>
                             <input
                                 ref={inputRef}
                                 type="text"
+                                className="terminal-input terminal-prompt-label"
                                 value={inputValue}
                                 onChange={(e) => setInputValue(e.target.value)}
                                 onKeyDown={handleKeyDown}
-                                autoFocus
                                 autoComplete="off"
-                                spellCheck="false"
-                                style={{
-                                    background: 'transparent',
-                                    border: 'none',
-                                    outline: 'none',
-                                    color: 'var(--text-color)',
-                                    fontSize: '1rem',
-                                    flexGrow: 1,      // Forces input to take ALL remaining space
-                                    minWidth: 0,      // Fixes flexbox overflow issues
-                                    fontFamily: 'inherit'
-                                }}
-                            />
+                                spellCheck="false" />
+
                         </div>
-
-                        {/* Empty click area filler (ensures clicking below input also focuses) */}
-                        <div style={{ flexGrow: 1 }} />
-
                     </div>
                 </aside>
             )}
         </>
-    )
+    );
 }
 
 export default Terminal;

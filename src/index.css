@@ -2,6 +2,8 @@
 @import "./css/Footer.css";
 @import "./css/Navigator.css";
 @import "./css/Directory.css";
+@import "./css/Directory.css";
+@import "./css/Terminal.css";
 
 :root {
   --keyword-purple: #C586C0;

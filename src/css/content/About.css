@@ -11,10 +11,13 @@
 
 .about-container {
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    /* Fix: Changed from 100vh to 100% */
     background-color: var(--bg-dark);
     color: var(--text-primary);
     font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
+
+    /* Keep the rest the same */
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -307,14 +310,6 @@
     background: #000;
 }
 
-.tilt-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.95;
-    filter: saturate(0.9) contrast(1.1);
-}
-
 /* --- RESPONSIVE FIXES --- */
 @media (max-width: 1100px) {
     .about-container {
@@ -343,4 +338,37 @@
         justify-content: center;
         margin: 0 auto;
     }
+}
+
+/* .tilt-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.95;
+    filter: saturate(0.9) contrast(1.1);
+} */
+
+
+.tilt-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    /* Hide all images by default */
+    opacity: 0;
+
+    /* This creates the smooth cross-fade effect */
+    transition: opacity 1s ease-in-out;
+
+    /* Keep your existing filters */
+    filter: saturate(0.9) contrast(1.1);
+}
+
+/* The active image fades in */
+.tilt-image.active {
+    opacity: 0.95;
+    /* Or 1, depending on how transparent you want it */
 }

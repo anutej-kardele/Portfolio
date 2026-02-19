@@ -4,7 +4,9 @@ import { getFolderChildren, formatLongListing } from '../fileSystemUtils';
 export const handleLsCommand = (command, currentDirectory) => {
 
     const entries = parse(command);
-    const cmd = entries[0];
+
+    // const cmd = entries[0];
+    const cmd = entries[1] || "";
 
     // console.log("Parsed Output ls:", entries);
     // if (entries.length === 0) return;
@@ -24,7 +26,7 @@ export const handleLsCommand = (command, currentDirectory) => {
             else
                 output = visibleChildren.toSorted((a, b) => a.name.localeCompare(b.name)).map(formatLongListing).join('\n');
 
-            console.log("debug files in detail...");
+            // console.log("debug files in detail...");
             break;
             // console.log(`debug files in detail...`);
             break;
@@ -84,6 +86,8 @@ export const handleLsCommand = (command, currentDirectory) => {
         // console.log(`debug files...`);
     }
 
-    console.log(output);
+    // console.log(output);
+
+    return output;
 
 };
