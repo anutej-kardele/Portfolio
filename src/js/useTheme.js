@@ -6,7 +6,7 @@ export const useTheme = () => {
         const localTheme = localStorage.getItem('app-theme');
         if (localTheme) return localTheme;
 
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        return 'dark';
     });
 
     useEffect(() => {

@@ -54,7 +54,7 @@ function Terminal({ showTerminal, setTerminal, showDirectory, showAI, currentDir
             // setHistory(prev => [...prev, { command: trimmedInput, result: output }]);
             // setInputValue("");
 
-            const resultText = await handleTerminalCommand(trimmedInput, currentDirectory, setActiveFile, setCurrentDirector, activeFile);
+            const resultText = await handleTerminalCommand(trimmedInput, currentDirectory, setActiveFile, setCurrentDirectory, activeFile);
 
             setHistory(prev => prev.map(item =>
                 item.id === commandId

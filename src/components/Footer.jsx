@@ -21,7 +21,7 @@ function Footer({ showAI, setShowAI, showTerminal, setTerminal }) {
                         style={{ cursor: 'pointer', display: 'flex', gap: '0.25rem', alignItems: 'center', fontSize: '0.9rem', marginLeft: '1rem' }}
                         className='status-item'>
                         <VscSourceControl size={'1rem'} />
-                        <span>Implementation</span>
+                        <span>master</span>
                     </div>
 
                     {/* Right part  */}

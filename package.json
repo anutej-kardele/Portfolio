@@ -2,7 +2,7 @@
   "homepage": "http://anutej-kardele.github.io/Portfolio",
   "name": "portfolio",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.5.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
