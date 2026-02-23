@@ -17,7 +17,7 @@ function Footer({ showAI, setShowAI, showTerminal, setTerminal }) {
                 }}>
 
                     {/* Left part  */}
-                    <div onClick={() => window.open('https://github.com/anutej-kardele/Portfolio/tree/implementation', '_blank')}
+                    <div onClick={() => window.open('https://github.com/anutej-kardele/Portfolio/tree/master', '_blank')}
                         style={{ cursor: 'pointer', display: 'flex', gap: '0.25rem', alignItems: 'center', fontSize: '0.9rem', marginLeft: '1rem' }}
                         className='status-item'>
                         <VscSourceControl size={'1rem'} />
