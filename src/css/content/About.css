@@ -9,17 +9,21 @@
     --glass-border: rgba(255, 255, 255, 0.08);
 } */
 
+/* In About.css */
 .about-container {
     width: 100%;
     height: 100%;
     background-color: var(--bg-dark);
     color: var(--text-primary);
-    font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
+
+    /* ADD THIS LINE: This traps the modal inside this box */
+    position: relative;
+
+    /* Keep the rest... */
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-sizing: border-box;
 }
 
 .about-grid-layout {
@@ -63,9 +67,58 @@
 }
 
 .accent-text {
-    background: linear-gradient(90deg, #fff, var(--accent-blue));
+    background: linear-gradient(90deg, var(--text-color), var(--accent-blue));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+/* --- BUTTONS --- */
+.cta-row {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    justify-content: flex-start;
+}
+
+.btn-primary {
+    /* High Contrast: White in dark mode, Dark in light mode */
+    background: var(--sidebar-button);
+
+    /* Text color matches the editor background for max contrast */
+    color: var(--sidebar-background);
+
+    border: none;
+    padding: 12px 28px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    /* Smooth transitions */
+    transition: all 0.2s ease-in-out;
+
+    /* Subtle shadow using your hover variable */
+    box-shadow: 0 4px 10px var(--hover);
+}
+
+.btn-primary:hover {
+    /* SUBTLE CHANGE: Instead of turning blue, it slightly dims to the text-color grey */
+    background: var(--text-color);
+
+    transform: translateY(-2px);
+
+    /* A very faint glow using the accent color, but kept transparent */
+    box-shadow: 0 8px 20px var(--hover);
+}
+
+/* Optional: Icon size consistency */
+.btn-primary svg {
+    font-size: 1.1em;
+    color: inherit;
 }
 
 /* Bio Text */

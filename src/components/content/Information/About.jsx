@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FaFileDownload } from 'react-icons/fa';
 import '../../../css/content/About.css';
+import ResumeModal from './ResumeModal';
 
 import image1 from '../../../assets/images/img1.jpg';
 import image2 from '../../../assets/images/img2.jpg';
@@ -109,8 +110,8 @@ const About = () => {
 
     const cardRef = useRef(null);
     const [rotate, setRotate] = useState({ x: 0, y: 0 });
-
     const [currentImgIndex, setCurrentImgIndex] = useState(0);
+    const [isResumeOpen, setIsResumeOpen] = useState(false);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -162,12 +163,17 @@ const About = () => {
 
                     {/* <div className="cta-row">
                         <button className="btn-primary" onClick={() => window.open("/resume.pdf", "_blank")}>
-                            <FaFileDownload /> Download CV
-                        </button>
-                        <button className="btn-secondary">
-                            View Projects
+                            <FaFileDownload /> View CV
                         </button>
                     </div> */}
+
+                    <div className="cta-row">
+                        <button className="btn-primary" onClick={() => setIsResumeOpen(true)}>
+                            <FaFileDownload /> View CV
+                        </button>
+                    </div>
+
+
 
                     {/* NEW: LIVE TERMINAL DEMO */}
                     <TerminalTicker />
@@ -199,7 +205,15 @@ const About = () => {
                     </div>
                 </div>
 
+                {/* Place the modal here, inside the container */}
+                <ResumeModal
+                    isOpen={isResumeOpen}
+                    onClose={() => setIsResumeOpen(false)}
+                    pdfUrl="/resume.pdf"
+                />
+
             </div>
+
         </div>
     );
 };
