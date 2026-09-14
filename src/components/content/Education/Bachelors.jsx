@@ -4,8 +4,6 @@ import '../../../css/content/education.css';
 import sihCert from '../../../assets/sih-certificate.jpg';
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
 
-// const bannerUrl = "https://upload.wikimedia.org/wikipedia/commons/4/4e/VIT_Bhopal_University_main_academic_building.jpg";
-
 const Bachelors = () => {
     const [showCert, setShowCert] = useState(false);
 
@@ -18,7 +16,46 @@ const Bachelors = () => {
     ];
 
     return (
-        <div className="bachelors-container">
+        <div className="bachelors-container mobile-bachelors-container">
+            <style>{`
+                @media (max-width: 1024px) {
+                    .mobile-bachelors-container {
+                        padding: 0.5rem !important;
+                        overflow-x: hidden !important;
+                    }
+                    /* Force top-and-bottom stacking for content grid */
+                    .mobile-bachelors-container .content-grid {
+                        display: flex !important;
+                        flex-direction: column !important;
+                        grid-template-columns: 1fr !important;
+                        gap: 1.5rem !important;
+                        width: 100% !important;
+                    }
+                    .mobile-bachelors-container .bio-column,
+                    .mobile-bachelors-container .project-column {
+                        width: 100% !important;
+                        max-width: 100% !important;
+                    }
+                    .mobile-bachelors-container .degree-bar {
+                        flex-direction: column !important;
+                        align-items: flex-start !important;
+                        gap: 1rem !important;
+                    }
+                    .mobile-bachelors-container .degree-right {
+                        width: 100% !important;
+                        justify-content: space-between !important;
+                    }
+                    .mobile-bachelors-container .header-section {
+                        height: 140px !important;
+                    }
+                    .mobile-bachelors-container .identity-wrapper {
+                        padding: 1rem !important;
+                    }
+                    .mobile-bachelors-container .collage-name-tag h1 {
+                        font-size: 1.15rem !important;
+                    }
+                }
+            `}</style>
 
             {/* HEADER */}
             <div className="header-section" style={{ backgroundImage: `url(${bannerUrl})` }}>
@@ -79,7 +116,7 @@ const Bachelors = () => {
                     <div className="project-column">
                         <div className="hackathon-card">
 
-                            {/* 1. BADGE (Small Yellow Block - Restored) */}
+                            {/* 1. BADGE */}
                             <div className="trophy-badge">🏆 National Winner</div>
 
                             {/* 2. EYE BUTTON */}
@@ -88,7 +125,6 @@ const Bachelors = () => {
                                 onClick={() => setShowCert(!showCert)}
                                 title={showCert ? "Hide Certificate" : "View Certificate"}
                             >
-                                {/* Slightly larger icon for the square button */}
                                 {showCert ? <VscEyeClosed size={20} /> : <VscEye size={20} />}
                             </button>
 

@@ -27,7 +27,6 @@ const FileNode = ({ node, setActiveFile, activeFile, depth = 0 }) => {
                     }}>
                         {isOpen ? <VscChevronDown /> : <VscChevronRight />}
                     </span>
-                    {/* Make the root folder uppercase for a "Project Root" feel */}
                     <span style={{
                         fontWeight: depth === 0 ? '800' : 'bold',
                         fontSize: '0.85rem',
@@ -70,6 +69,24 @@ const FileNode = ({ node, setActiveFile, activeFile, depth = 0 }) => {
 function Directory({ showDirectory, activeFile, setActiveFile }) {
     return (
         <>
+            <style>{`
+                @media (max-width: 1024px) {
+                    .directory {
+                        position: fixed !important;
+                        top: 4.5rem !important;
+                        left: 1rem !important;
+                        width: 260px !important;
+                        max-height: 70vh !important;
+                        background: rgba(30, 30, 30, 0.95) !important;
+                        backdrop-filter: blur(12px) !important;
+                        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+                        border-radius: 12px !important;
+                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+                        z-index: 999 !important;
+                        overflow-y: auto !important;
+                    }
+                }
+            `}</style>
             {/* directory */}
             {showDirectory && (
                 <aside
@@ -80,7 +97,6 @@ function Directory({ showDirectory, activeFile, setActiveFile }) {
                     <div className="directoryInnerDiv" >
                         EXPLORER
                     </div>
-
 
                     <div className='file-tree' style={{ marginTop: '2.5rem' }}>
                         {fileSystem.map(node => (

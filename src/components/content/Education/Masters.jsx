@@ -25,7 +25,41 @@ const Masters = () => {
     ];
 
     return (
-        <div className="bachelors-container">
+        <div className="bachelors-container mobile-edu-container">
+            <style>{`
+                @media (max-width: 1024px) {
+                    .mobile-edu-container {
+                        padding: 0.5rem !important;
+                        overflow-x: hidden;
+                    }
+                    /* Force top-and-bottom stacking instead of side-by-side */
+                    .mobile-edu-container .content-grid {
+                        display: flex !important;
+                        flex-direction: column !important;
+                        grid-template-columns: 1fr !important;
+                        gap: 1.5rem !important;
+                    }
+                    .mobile-edu-container .degree-bar {
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 1rem;
+                    }
+                    .mobile-edu-container .degree-right {
+                        width: 100%;
+                        justify-content: space-between;
+                    }
+                    .mobile-edu-container .header-section {
+                        height: 140px !important;
+                    }
+                    .mobile-edu-container .identity-wrapper {
+                        padding: 1rem !important;
+                    }
+                    .mobile-edu-container .collage-name-tag h1 {
+                        font-size: 1.25rem !important;
+                    }
+                }
+            `}</style>
+
             <div className="header-section" style={{ backgroundImage: `url(${bannerUrl})` }}>
                 <div className="overlay-gradient"></div>
                 <div className="identity-wrapper">
