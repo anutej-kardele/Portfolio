@@ -8,7 +8,7 @@ const STEPS = [
         body: 'Each journal folder is placed under <code>Input/</code> and processed individually or in batch. Folder-based scan packages contain hundreds to thousands of page images, with fallbacks handling missing metadata.'
     },
     {
-        num: 2, label: 'CrossRef', sub: '',
+        num: 2, label: 'CrossRef', sub: 'aiscore 100',
         title: 'Step 2 — CrossRef',
         body: 'CrossRef API is queried first to retrieve title, author, DOI, and issue metadata. A database and web scraper fallback handles journals with missing or incomplete CrossRef records.'
     },
