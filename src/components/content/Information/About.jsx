@@ -144,19 +144,19 @@ const About = () => {
             <style>{`
                 .about-container {
                     height: 100%;
-                    overflow-y: auto !important; /* Enables vertical scrolling */
-                    overflow-x: hidden !important; /* Prevents horizontal bleeding */
+                    overflow-y: auto !important; 
+                    overflow-x: hidden !important; 
                 }
                 
                 .system-ticker-container {
-                    box-sizing: border-box !important; /* Forces padding inside width */
+                    box-sizing: border-box !important; 
                     width: 100% !important;
                     max-width: 100% !important;
                 }
 
                 @media (max-width: 1024px) {
                     .about-container {
-                        align-items: flex-start !important; /* FIX: Stops the parent from centering tall content off-screen */
+                        align-items: flex-start !important; 
                     }
                     .about-grid-layout {
                         display: flex !important;
@@ -165,23 +165,21 @@ const About = () => {
                         align-items: flex-start !important;
                         height: auto !important; 
                         min-height: min-content !important; 
-                        gap: 2rem !important; 
-                        padding-top: 4rem !important; /* Pushes headline below the mobile menu button */
-                        padding-bottom: 8rem !important; /* Clears the blue footer & FAB */
+                        gap: 1.5rem !important; /* Slightly reduced gap */
+                        padding-top: 1.5rem !important; /* FIX: Reduced padding to move title up */
+                        padding-bottom: 6rem !important; 
                     }
                     .text-column {
                         display: flex !important;
                         flex-direction: column !important;
                         justify-content: flex-start !important; 
-                    }
-                    .text-column, .image-column {
                         width: 100% !important;
                         max-width: 100% !important;
                         box-sizing: border-box !important;
                         height: auto !important;
                     }
                     .image-column {
-                        min-height: 350px !important; 
+                        display: none !important; /* FIX: Hides the 3D photos completely on mobile */
                     }
                 }
             `}</style>

@@ -15,28 +15,55 @@ const Masters = () => {
         { name: "Machine Learning", code: "CSE 574" },
         { name: "Computer Security", code: "CSE 565" },
         { name: "Operating Systems", code: "CSE 521" },
-        { name: "Project Management", code: "EAS 521" }
-    ];
-
-    const ongoingCourses = [
+        { name: "Project Management", code: "EAS 521" },
         { name: "Deep Learning", code: "CSE 676" },
         { name: "Modern Network Concepts", code: "CSE 589" },
         { name: "MS Project Development", code: "CSE 611" }
     ];
 
+    const ongoingCourses = [
+        { name: "Distributed Systems", code: "CSE 586" },
+        { name: "Data Intensive Computing", code: "CSE 587" }
+    ];
+
     return (
         <div className="bachelors-container mobile-edu-container">
             <style>{`
+                /* New Grid Styles for Horizontal Split */
+                .stacked-courses-container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1.5rem;
+                    width: 100%;
+                    margin-top: 1rem;
+                }
+                
+                .course-grid {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 0.8rem;
+                    width: 100%;
+                }
+                
+                .section-label-center {
+                    display: block;
+                    text-align: center;
+                    margin-bottom: 0.75rem;
+                    font-size: 0.85rem;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                }
+
                 @media (max-width: 1024px) {
                     .mobile-edu-container {
                         padding: 0.5rem !important;
+                        padding-bottom: 6rem !important; /* Breathing room to scroll past the FAB */
                         overflow-x: hidden;
                     }
                     /* Force top-and-bottom stacking instead of side-by-side */
                     .mobile-edu-container .content-grid {
                         display: flex !important;
                         flex-direction: column !important;
-                        grid-template-columns: 1fr !important;
                         gap: 1.5rem !important;
                     }
                     .mobile-edu-container .degree-bar {
@@ -56,6 +83,21 @@ const Masters = () => {
                     }
                     .mobile-edu-container .collage-name-tag h1 {
                         font-size: 1.25rem !important;
+                    }
+                    
+                    /* FIX: Force the card to wrap all stacked content */
+                    .hackathon-card, 
+                    .masters-card, 
+                    .details-view-container {
+                        height: auto !important;
+                        min-height: min-content !important;
+                        padding-bottom: 1.5rem !important;
+                    }
+                }
+
+                @media (max-width: 600px) {
+                    .course-grid {
+                        grid-template-columns: 1fr; /* Stacks to 1 column on very small phone screens to prevent squishing */
                     }
                 }
             `}</style>
@@ -141,29 +183,38 @@ const Masters = () => {
                                         <span className="subtitle" style={{ color: '#4fc3f7' }}>Advanced Systems & Intelligent Models</span>
                                     </div>
 
-                                    <div className="dual-list-container">
-                                        <div className="course-list-column">
-                                            <span className="course-section-label">Completed</span>
-                                            {completedCourses.map((c, i) => (
-                                                <div key={i} className="course-item completed">
-                                                    <span className="course-name">{c.name}</span>
-                                                    <span className="course-code">{c.code}</span>
-                                                </div>
-                                            ))}
+                                    {/* NEW HORIZONTAL SPLIT LAYOUT */}
+                                    <div className="stacked-courses-container">
+
+                                        {/* Row 1: Completed Courses */}
+                                        <div className="course-group">
+                                            <span className="course-section-label section-label-center">Completed</span>
+                                            <div className="course-grid">
+                                                {completedCourses.map((c, i) => (
+                                                    <div key={i} className="course-item completed">
+                                                        <span className="course-name">{c.name}</span>
+                                                        <span className="course-code">{c.code}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
                                         </div>
 
-                                        <div className="course-list-column">
-                                            <span className="course-section-label ongoing">Ongoing</span>
-                                            {ongoingCourses.map((c, i) => (
-                                                <div key={i} className="course-item ongoing">
-                                                    <span className="course-name">{c.name}</span>
-                                                    <span className="course-code">{c.code}</span>
-                                                </div>
-                                            ))}
+                                        {/* Row 2: Ongoing Courses */}
+                                        <div className="course-group">
+                                            <span className="course-section-label ongoing section-label-center">Ongoing</span>
+                                            <div className="course-grid">
+                                                {ongoingCourses.map((c, i) => (
+                                                    <div key={i} className="course-item ongoing">
+                                                        <span className="course-name">{c.name}</span>
+                                                        <span className="course-code">{c.code}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
                                         </div>
+
                                     </div>
 
-                                    <p className="project-desc footer-note-compact">
+                                    <p className="project-desc footer-note-compact" style={{ marginTop: '1.5rem', textAlign: 'center' }}>
                                         Applying systems engineering to ML models to build fast, intelligent platforms.
                                     </p>
                                 </div>

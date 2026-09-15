@@ -75,7 +75,9 @@ function Prompter({ showAI, setShowAI, activeFile }) {
 
                         {messages.length === 0 && (
                             <div className="chat-placeholder" >
-                                Have questions about my resume? <br /> Ask them here...
+                                {/* Have questions about my resume? <br /> Ask them here...
+                                 */}
+                                Curious about my profile? <br />Ask my AI assistant! 🤖
                             </div>
                         )}
 

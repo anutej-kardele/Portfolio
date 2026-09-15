@@ -30,6 +30,7 @@ function Content({ showDirectory, showAI, showTerminal, activeFile }) {
                     .content {
                         left: 0rem !important;
                         right: 0rem !important;
+                        bottom: var(--footer-height) !important; /* Sit above the taller phone footer */
                         padding-top: 3.5rem !important; /* Pulls content below the button */
                     }
                 }

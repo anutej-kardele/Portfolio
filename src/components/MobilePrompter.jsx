@@ -59,7 +59,7 @@ function MobilePrompter({ activeFile }) {
                     /* Floating Action Button (FAB) */
                     .mobile-fab {
                         position: fixed;
-                        bottom: 3.5rem; /* Increased from 1.5rem to clear the blue footer */
+                        bottom: calc(var(--footer-height) + 1.5rem); /* 1.5rem above the footer */
                         right: 1.5rem;
                         width: 56px;
                         height: 56px;
@@ -83,7 +83,7 @@ function MobilePrompter({ activeFile }) {
                     /* The Chat Modal */
                     .mobile-chat-modal {
                         position: fixed;
-                        bottom: 7.5rem; /* Increased from 5.5rem to stay above the newly moved FAB */
+                        bottom: calc(var(--footer-height) + 5.5rem); /* Above the FAB (1.5rem gap + 56px button + 0.5rem) */
                         right: 1rem;
                         width: calc(100vw - 2rem);
                         max-width: 400px;
@@ -258,7 +258,8 @@ function MobilePrompter({ activeFile }) {
                     <div className="mobile-chat-body">
                         {messages.length === 0 && (
                             <div className="mobile-chat-placeholder">
-                                Have questions about my resume? <br /> Ask them here...
+                                {/* Have questions about my resume? <br /> Ask them here... */}
+                                Curious about my profile? <br />Ask my AI assistant! 🤖
                             </div>
                         )}
 

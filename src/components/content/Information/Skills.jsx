@@ -47,6 +47,26 @@ const Skills = () => {
 
     return (
         <div className="skills-page-wrapper">
+
+            <style>{`
+                @media (max-width: 1024px) {
+                    .skills-page-wrapper {
+                        padding: 1rem !important;
+                        overflow-x: hidden !important;
+                    }
+                    /* Force the 2x2 grid into a 1-column stack */
+                    .skills-main-grid {
+                        display: flex !important;
+                        flex-direction: column !important;
+                        gap: 1.5rem !important;
+                    }
+                    .skill-category-card {
+                        width: 100% !important;
+                        box-sizing: border-box !important;
+                    }
+                }
+            `}</style>
+
             <div className="skills-header">
                 <h1>Technical Competencies</h1>
                 <p>Synthesizing technical precision with architectural insight to build robust, scalable systems.</p>
