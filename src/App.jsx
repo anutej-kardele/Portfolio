@@ -1,13 +1,14 @@
 import './App.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Footer from './components/Footer';
 import Navigator from './components/Navigator';
 import Prompter from './components/Prompter';
 import Directory from './components/Directory';
-import MobileDirectory from './components/MobileDirectory'; // ADD THIS
+import MobileDirectory from './components/MobileDirectory';
 import Terminal from './components/Terminal';
 import Content from "./components/Content";
 import { fileSystem } from './utils/fileSystem';
+import { getHealth } from './utils/api'
 
 function App() {
 
@@ -16,6 +17,10 @@ function App() {
   const [showTerminal, setTerminal] = useState(false);
   const [activeFile, setActiveFile] = useState('about');
   const [currentDirectory, setCurrentDirectory] = useState(fileSystem[0]);
+
+  useEffect(() => {
+    getHealth().catch(() => { })
+  }, [])
 
   return (
     <>
