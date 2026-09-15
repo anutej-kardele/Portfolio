@@ -41,6 +41,13 @@ function Prompter({ showAI, setShowAI, activeFile }) {
 
     return (
         <>
+            <style>{`
+                @media (max-width: 1024px) {
+                    .prompter {
+                        display: none !important;
+                    }
+                }
+            `}</style>
             {/* prompter */}
             {showAI && (
                 <aside className='prompter'>

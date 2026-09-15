@@ -109,6 +109,14 @@ function Terminal({ showTerminal, setTerminal, showDirectory, showAI, currentDir
 
     return (
         <>
+            <style>{`
+                @media (max-width: 1024px) {
+                    .terminal {
+                        display: none !important;
+                    }
+                }
+            `}</style>
+
             {showTerminal && (
                 <aside
                     className="terminal"

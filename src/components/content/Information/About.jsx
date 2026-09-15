@@ -140,6 +140,52 @@ const About = () => {
 
     return (
         <div className="about-container">
+            {/* INJECTED STYLES FOR SCROLLING AND ALIGNMENT */}
+            <style>{`
+                .about-container {
+                    height: 100%;
+                    overflow-y: auto !important; /* Enables vertical scrolling */
+                    overflow-x: hidden !important; /* Prevents horizontal bleeding */
+                }
+                
+                .system-ticker-container {
+                    box-sizing: border-box !important; /* Forces padding inside width */
+                    width: 100% !important;
+                    max-width: 100% !important;
+                }
+
+                @media (max-width: 1024px) {
+                    .about-container {
+                        align-items: flex-start !important; /* FIX: Stops the parent from centering tall content off-screen */
+                    }
+                    .about-grid-layout {
+                        display: flex !important;
+                        flex-direction: column !important;
+                        justify-content: flex-start !important; 
+                        align-items: flex-start !important;
+                        height: auto !important; 
+                        min-height: min-content !important; 
+                        gap: 2rem !important; 
+                        padding-top: 4rem !important; /* Pushes headline below the mobile menu button */
+                        padding-bottom: 8rem !important; /* Clears the blue footer & FAB */
+                    }
+                    .text-column {
+                        display: flex !important;
+                        flex-direction: column !important;
+                        justify-content: flex-start !important; 
+                    }
+                    .text-column, .image-column {
+                        width: 100% !important;
+                        max-width: 100% !important;
+                        box-sizing: border-box !important;
+                        height: auto !important;
+                    }
+                    .image-column {
+                        min-height: 350px !important; 
+                    }
+                }
+            `}</style>
+
             <div className="about-grid-layout">
 
                 {/* LEFT COLUMN: Narrative */}
@@ -161,19 +207,11 @@ const About = () => {
                         </p>
                     </div>
 
-                    {/* <div className="cta-row">
-                        <button className="btn-primary" onClick={() => window.open("/resume.pdf", "_blank")}>
-                            <FaFileDownload /> View CV
-                        </button>
-                    </div> */}
-
                     <div className="cta-row">
                         <button className="btn-primary" onClick={() => setIsResumeOpen(true)}>
                             <FaFileDownload /> View CV
                         </button>
                     </div>
-
-
 
                     {/* NEW: LIVE TERMINAL DEMO */}
                     <TerminalTicker />

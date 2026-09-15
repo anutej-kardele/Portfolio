@@ -5,6 +5,7 @@ import Navigator from './components/Navigator';
 import Prompter from './components/Prompter';
 import Directory from './components/Directory';
 import MobileDirectory from './components/MobileDirectory';
+import MobilePrompter from './components/MobilePrompter';
 import Terminal from './components/Terminal';
 import Content from "./components/Content";
 import { fileSystem } from './utils/fileSystem';
@@ -29,6 +30,8 @@ function App() {
       <Terminal showTerminal={showTerminal} setTerminal={setTerminal} showDirectory={showDirectory} showAI={showAI} currentDirectory={currentDirectory} setActiveFile={setActiveFile} setCurrentDirectory={setCurrentDirectory} activeFile={activeFile} />
 
       <Prompter showAI={showAI} setShowAI={setShowAI} activeFile={activeFile} />
+
+      <MobilePrompter activeFile={activeFile} />
 
       {/* Desktop Sidebar Directory */}
       <Directory showDirectory={showDirectory} activeFile={activeFile} setActiveFile={setActiveFile} />
