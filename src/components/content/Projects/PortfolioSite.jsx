@@ -223,6 +223,7 @@ const PortfolioSite = () => {
                     .ps-btn {
                         width: 100%;
                         justify-content: center;
+                        box-sizing: border-box !important;
                     }
                 }
             `}</style>

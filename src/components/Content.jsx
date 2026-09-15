@@ -7,6 +7,7 @@ import AI_Data_Extraction from "./content/Projects/AI_Data_Extraction";
 import OpenStream from "./content/Projects/OpenStream";
 import PortfolioSite from "./content/Projects/PortfolioSite";
 import Hidden from "./content/Hidden";
+import BERTweetGuard from "./content/Projects/BERTweetGuard"
 
 function Content({ showDirectory, showAI, showTerminal, activeFile }) {
 
@@ -18,7 +19,8 @@ function Content({ showDirectory, showAI, showTerminal, activeFile }) {
         'AI_Data_Extraction': <AI_Data_Extraction />,
         'openstream': <OpenStream />,
         'portfolio_site': <PortfolioSite />,
-        'secret': <Hidden />
+        'secret': <Hidden />,
+        'bertweet': <BERTweetGuard />
     };
 
     return (

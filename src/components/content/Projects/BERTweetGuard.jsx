@@ -1,65 +1,61 @@
 import { useState, useEffect, useRef } from 'react';
-import '../../../css/content/AI_Data_Extraction.css'; // Reusing your existing project CSS
-import { VscLinkExternal, VscGithub, VscCheck, VscLayers } from 'react-icons/vsc';
+import '../../../css/content/AI_Data_Extraction.css';
+import { VscGithub, VscCheck, VscServerProcess, VscLaw } from 'react-icons/vsc';
 
 const STEPS = [
     {
         num: 1,
-        label: 'Responsive<br/>Shell',
-        sub: 'React 19',
-        title: 'Step 1 — Mobile-First Shell & State Layer',
-        body: 'Built with <strong>React 19</strong>, <strong>Tailwind CSS v4</strong>, and <strong>React Router 7</strong>. Utilizes a responsive <code>PhoneShell</code> (420px desktop viewport frame collapsing to full-bleed on mobile) with <code>h-dvh</code> units to eliminate iOS Safari toolbar dead space. Global session and social graphs are isolated in modular <code>AuthContext</code> and <code>DataContext</code> layers.'
+        label: 'Phase 1:<br/>Experimentation',
+        sub: 'THOS Dataset',
+        title: 'Step 1 — Broad Architecture Experimentation',
+        body: 'Utilized a smaller dataset to compare zero-shot BERT, full fine-tuning, and LoRA configurations. Identified the winning combination: <strong>BERTweet + LoRA (r=16) + Focal Loss + Cosine Scheduler</strong>.'
     },
     {
         num: 2,
-        label: 'REST API<br/>Routing',
-        sub: 'Spring Boot',
-        title: 'Step 2 — Layered Controllers & DTO Contract',
-        body: 'Powered by <strong>Spring Boot 4.1</strong> on <strong>Java 25</strong>. Controllers strictly map HTTP requests without business logic. API contracts are isolated through dedicated Request/Response <strong>DTOs</strong> built inside transaction boundaries to eliminate <code>LazyInitializationException</code>, coupled with a global <code>@RestControllerAdvice</code> for centralized error handling.'
+        label: 'Phase 2:<br/>Scaling',
+        sub: 'Jigsaw Toxic Data',
+        title: 'Step 2 — Scaling to Jigsaw Dataset',
+        body: 'Scaled the architecture to the much larger Jigsaw Toxic Comment dataset using a 90/5/5 stratified split. Refined class weighting, LoRA rank (r=32), and preprocessing alignment.'
     },
     {
         num: 3,
-        label: 'Relational<br/>Feed Engine',
-        sub: 'PostgreSQL',
-        title: 'Step 3 — Follow Graph & Single-Roundtrip Feed',
-        body: 'Backed by <strong>PostgreSQL 18 (Neon Serverless)</strong> and <strong>Hibernate 7.4</strong>. Solves chronological timeline assembly via an optimized JPQL join across user follow records and post tables, querying the user’s feed and follow relationships in a single database roundtrip.'
+        label: 'Threshold<br/>Tuning',
+        sub: 'Validation F1',
+        title: 'Step 3 — Decision Threshold Optimization',
+        body: 'Instead of relying on a standard argmax, the model calculates a custom decision threshold optimized for Macro F1 on the validation set. This threshold is saved as a trained artifact alongside the model weights.'
     },
     {
         num: 4,
-        label: 'Testing &<br/>CI/CD',
-        sub: 'Docker + Render',
-        title: 'Step 4 — Isolated Service Tests & Multi-Stage Deployment',
-        body: 'Tested with <strong>JUnit 5</strong> and <strong>Mockito</strong> using constructor injection, running service-layer test suites in under a second without spinning up a database. Containerized via a multi-stage Docker build separating dependency caching from source compilations, deployed across Render and GitHub Actions.'
+        label: 'FastAPI<br/>Deployment',
+        sub: 'Hugging Face',
+        title: 'Step 4 — Production Inference Service',
+        body: 'Deployed as a FastAPI inference service with a browser UI. To bypass Git LFS constraints for the 540MB model, the API automatically pulls the compiled model weights and <code>threshold.json</code> directly from Hugging Face on startup.'
     }
 ];
 
 const HIGHLIGHTS = [
-    { label: 'Single-Query Feed Engine', desc: 'JPQL join queries timeline posts across the follower graph in one database roundtrip.' },
-    { label: 'Dynamic Viewport (h-dvh)', desc: 'Tracks dynamic iOS and Android browser chrome to prevent clipping and layout jumps.' },
-    { label: 'Strict Layer Isolation', desc: 'Zero entity leakage via DTO boundaries and centralized @RestControllerAdvice exception handling.' },
-    { label: 'Sub-Second Mockito Suite', desc: 'Constructor-injected isolated service unit tests running with zero database overhead.' }
+    { label: 'LoRA Fine-Tuning', desc: 'Employed Low-Rank Adaptation (LoRA) targeting query, key, value, and dense modules to efficiently fine-tune BERTweet.' },
+    { label: 'Weighted Focal Loss', desc: 'Implemented Focal Loss (gamma=1.0) with class weights [1.0, 1.25] to heavily penalize misclassified minority examples.' },
+    { label: 'Hugging Face Integration', desc: 'Inference pipeline natively downloads model weights and custom decision thresholds from Hugging Face at runtime.' },
+    { label: 'Threshold Decoupling', desc: 'API returns raw flagged probabilities, threshold margins, and boolean decisions to allow for dynamic upstream policy rules.' }
 ];
 
 const TECH = [
-    { label: 'Java 25', type: 'primary' },
-    { label: 'Spring Boot 4.1', type: 'primary' },
-    { label: 'React 19', type: 'primary' },
-    { label: 'PostgreSQL 18 (Neon)', type: 'infra' },
-    { label: 'Hibernate 7.4', type: '' },
-    { label: 'Tailwind CSS v4', type: '' },
-    { label: 'Vite', type: '' },
-    { label: 'Docker (Multi-stage)', type: 'infra' },
-    { label: 'JUnit 5 & Mockito', type: 'ai' },
-    { label: 'React Router 7', type: '' },
-    { label: 'Render Cloud', type: 'infra' },
-    { label: 'GitHub Actions CI/CD', type: 'infra' }
+    { label: 'Python 3.10+', type: 'primary' },
+    { label: 'FastAPI', type: 'primary' },
+    { label: 'BERTweet', type: 'ai' },
+    { label: 'LoRA', type: 'ai' },
+    { label: 'Hugging Face Transformers', type: 'ai' },
+    { label: 'PyTorch', type: 'ai' },
+    { label: 'Jupyter Notebooks', type: '' },
+    { label: 'HTML/CSS UI', type: '' }
 ];
 
 const RESULTS = [
-    { value: 14, suffix: '', desc: 'Service unit tests passing in < 1s with Mockito isolation', green: true },
-    { value: 1, suffix: '', desc: 'Single database roundtrip for chronological feed generation', green: true },
-    { value: 4, suffix: '', desc: 'Mobile-first client views (Login, Feed, Search, Profile)', green: false },
-    { value: 280, suffix: ' char', desc: 'Character limit validation enforced across business rules', green: false },
+    { value: 91.74, suffix: '%', desc: 'Test Macro F1 Score', green: true },
+    { value: 97.10, suffix: '%', desc: 'Overall Test Accuracy', green: true },
+    { value: 0.62, suffix: '', desc: 'Validation-Tuned Decision Threshold', green: false },
+    { value: 89, suffix: '%', desc: 'Flagged Class Precision', green: false },
 ];
 
 /* ── Animated counter hook ── */
@@ -100,7 +96,7 @@ function AnimatedStat({ value, suffix, className }) {
     return <span ref={ref} className={className || 'p1-stat-value'}>{display}</span>;
 }
 
-const OpenStream = () => {
+const BERTweetGuard = () => {
     const [activeStep, setActiveStep] = useState(0);
 
     useEffect(() => {
@@ -116,16 +112,16 @@ const OpenStream = () => {
     const step = STEPS[activeStep];
 
     return (
-        <div className="p1-container openstream-container">
-            {/* Embedded scoped responsive fixes */}
+        <div className="p1-container bertweet-container">
+            {/* Embedded scoped responsive styles with 1024px breakpoint */}
             <style>{`
-                .openstream-links {
+                .bertweet-links {
                     display: flex;
                     flex-wrap: wrap;
                     gap: 0.75rem;
                     margin-top: 1.25rem;
                 }
-                .os-btn {
+                .bg-btn {
                     display: inline-flex;
                     align-items: center;
                     gap: 0.45rem;
@@ -136,37 +132,37 @@ const OpenStream = () => {
                     text-decoration: none;
                     transition: all 0.2s ease;
                 }
-                .os-btn-primary {
+                .bg-btn-primary {
                     background: #2563eb;
                     color: #ffffff;
                     border: 1px solid #3b82f6;
                 }
-                .os-btn-primary:hover {
+                .bg-btn-primary:hover {
                     background: #1d4ed8;
                 }
-                .os-btn-secondary {
+                .bg-btn-secondary {
                     background: #1e1e1e;
                     color: #d4d4d4;
                     border: 1px solid #333333;
                 }
-                .os-btn-secondary:hover {
+                .bg-btn-secondary:hover {
                     background: #2d2d2d;
                     color: #ffffff;
                     border-color: #4f4f4f;
                 }
-                .os-highlights-grid {
+                .bg-highlights-grid {
                     display: grid;
                     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
                     gap: 1rem;
                     margin-top: 1rem;
                 }
-                .os-highlight-card {
+                .bg-highlight-card {
                     background: rgba(255, 255, 255, 0.03);
                     border: 1px solid rgba(255, 255, 255, 0.08);
                     border-radius: 8px;
                     padding: 1rem;
                 }
-                .os-highlight-title {
+                .bg-highlight-title {
                     font-weight: 600;
                     font-size: 0.95rem;
                     color: #61dafb;
@@ -175,13 +171,13 @@ const OpenStream = () => {
                     align-items: center;
                     gap: 0.5rem;
                 }
-                .os-highlight-desc {
+                .bg-highlight-desc {
                     font-size: 0.825rem;
                     color: #a0a0a0;
                     line-height: 1.4;
                 }
                 @media (max-width: 1024px) {
-                    .openstream-container {
+                    .bertweet-container {
                         padding: 1rem !important;
                         overflow-x: hidden;
                     }
@@ -199,10 +195,10 @@ const OpenStream = () => {
                         min-width: 75px;
                         flex-shrink: 0;
                     }
-                    .openstream-links {
+                    .bertweet-links {
                         flex-direction: column;
                     }
-                    .os-btn {
+                    .bg-btn {
                         width: 100%;
                         justify-content: center;
                         box-sizing: border-box !important;
@@ -213,29 +209,26 @@ const OpenStream = () => {
             {/* ── HERO ── */}
             <header className="p1-hero">
                 <div className="p1-hero-eyebrow">
-                    <span className="p1-badge p1-badge-course">Full-Stack Microblogging</span>
-                    <span className="p1-badge p1-badge-client">Spring Boot 4.1 + React 19</span>
-                    <span className="p1-badge p1-badge-year">Sep 2026</span>
+                    <span className="p1-badge p1-badge-course">Machine Learning / NLP</span>
+                    <span className="p1-badge p1-badge-client">BERTweet + FastAPI</span>
                 </div>
                 <h1 className="p1-hero-title">
-                    <span>OpenStream</span> Platform
+                    <span>BERTweet</span> Guard
                 </h1>
-                <p className="p1-hero-subtitle">// Mobile-first social microblogging architecture</p>
+                <p className="p1-hero-subtitle">// OpenStream Moderation Engine</p>
                 <p className="p1-hero-desc">
-                    A public microblogging application built around a responsive phone shell and a low-latency
-                    relational feed engine[cite: 2, 3]. Engineered with a strict multi-layer <strong>Java 25 Spring Boot</strong> API[cite: 2]
-                    and a <strong>React 19 / Tailwind CSS v4</strong> frontend[cite: 3].
+                    A research-to-deployment text moderation API. Trained on the Jigsaw Toxic Comment dataset,
+                    it utilizes <strong>Low-Rank Adaptation (LoRA)</strong>, <strong>Focal Loss</strong>, and
+                    validation-tuned decision thresholds. Model weights (540MB) are hosted dynamically on Hugging Face
+                    to optimize the GitHub repository size and deployment speed.
                 </p>
 
-                <div className="openstream-links">
-                    <a href="https://openstream.anutej.us/login" target="_blank" rel="noreferrer" className="os-btn os-btn-primary">
-                        <VscLinkExternal /> Open Web App
+                <div className="bertweet-links">
+                    <a href="https://github.com/anutej-kardele/bertweet-guard" target="_blank" rel="noreferrer" className="bg-btn bg-btn-secondary">
+                        <VscGithub /> GitHub Repository
                     </a>
-                    <a href="https://github.com/anutej-kardele/OpenStream" target="_blank" rel="noreferrer" className="os-btn os-btn-secondary">
-                        <VscGithub /> Frontend Repo
-                    </a>
-                    <a href="https://github.com/anutej-kardele/openstream-api" target="_blank" rel="noreferrer" className="os-btn os-btn-secondary">
-                        <VscGithub /> Backend API Repo
+                    <a href="https://huggingface.co/Anutej9/bertweet-guard" target="_blank" rel="noreferrer" className="bg-btn bg-btn-primary">
+                        <VscServerProcess /> Hugging Face Model Weights
                     </a>
                 </div>
             </header>
@@ -244,7 +237,7 @@ const OpenStream = () => {
             <section className="p1-section">
                 <div className="p1-section-header">
                     <span className="p1-section-tag">01</span>
-                    <span className="p1-section-title">System Execution Flow</span>
+                    <span className="p1-section-title">Research & Deployment Flow</span>
                     <div className="p1-section-line" />
                 </div>
                 <div className="p1-pipeline-track">
@@ -279,16 +272,16 @@ const OpenStream = () => {
             <section className="p1-section">
                 <div className="p1-section-header">
                     <span className="p1-section-tag">02</span>
-                    <span className="p1-section-title">Engineering Highlights</span>
+                    <span className="p1-section-title">Model Specifications</span>
                     <div className="p1-section-line" />
                 </div>
-                <div className="os-highlights-grid">
+                <div className="bg-highlights-grid">
                     {HIGHLIGHTS.map((item, idx) => (
-                        <div key={idx} className="os-highlight-card">
-                            <div className="os-highlight-title">
+                        <div key={idx} className="bg-highlight-card">
+                            <div className="bg-highlight-title">
                                 <VscCheck color="#22c55e" /> {item.label}
                             </div>
-                            <div className="os-highlight-desc">{item.desc}</div>
+                            <div className="bg-highlight-desc">{item.desc}</div>
                         </div>
                     ))}
                 </div>
@@ -317,7 +310,7 @@ const OpenStream = () => {
             <section className="p1-section">
                 <div className="p1-section-header">
                     <span className="p1-section-tag">04</span>
-                    <span className="p1-section-title">Architecture Specs & Verification</span>
+                    <span className="p1-section-title">Model Evaluation (Jigsaw Dataset)</span>
                     <div className="p1-section-line" />
                 </div>
                 <div className="p1-results-grid">
@@ -337,4 +330,4 @@ const OpenStream = () => {
     );
 };
 
-export default OpenStream;
+export default BERTweetGuard;

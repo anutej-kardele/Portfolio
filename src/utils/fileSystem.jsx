@@ -48,6 +48,7 @@ export const fileSystem = [
                 children: [
                     { id: "AI_Data_Extraction", name: "AI Data Extraction", type: "file", size: "1KB", created: "2025-02-17T17:51:00Z", icon: <VscCode color="#f1c40f" /> },
                     { id: "openstream", name: "OpenStream", type: "file", size: "1KB", created: "2026-09-14T12:00:00Z", icon: <VscCode color="#61dafb" /> },
+                    { id: "bertweet", name: "BERTweet Guard", type: "file", size: "1KB", created: "2026-09-14T12:00:00Z", icon: <VscCode color="#22c55e" /> },
                     { id: "portfolio_site", name: "VS Code Portfolio", type: "file", size: "2KB", created: "2026-02-20T10:00:00Z", icon: <VscCode color="#3b82f6" /> }
                 ]
             },

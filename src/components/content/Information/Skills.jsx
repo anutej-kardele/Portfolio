@@ -4,43 +4,43 @@ import '../../../css/content/Skills.css';
 const Skills = () => {
     const skillGroups = [
         {
-            category: "Software Architecture & Systems",
+            category: "Software & Web Development",
             icon: "⚙️",
-            description: "Expertise in low-level systems and high-performance software design.",
+            description: "Expertise in full-stack architecture, scalable backends, and low-level system design.",
             skills: [
-                { name: "Core Languages", detail: "C, C#, Java, Python" },
-                { name: "Architecture", detail: "Component-Based, OOP, DSA" },
-                { name: "Web Technologies", detail: "React.js, JavaScript, Vite" }
+                { name: "Languages", detail: "Java, Python, C#, Go, JavaScript, C" },
+                { name: "Backend & APIs", detail: "Spring Boot, REST APIs, JPA/Hibernate, DTOs" },
+                { name: "Frontend", detail: "React.js, Vite, HTML/CSS" }
             ]
         },
         {
-            category: "Artificial Intelligence",
+            category: "Artificial Intelligence & Data",
             icon: "🧠",
-            description: "Developing intelligent models and data-driven pipelines.",
+            description: "Developing intelligent models, NLP pipelines, and data-driven infrastructure.",
             skills: [
-                { name: "Machine Learning", detail: "CNN, FCN, Reinforcement Learning" },
-                { name: "Data Engineering", detail: "Web Scraping, OCR, Metadata Extraction" },
-                { name: "Tools", detail: "Python, NumPy, PyTorch" }
+                { name: "ML & Frameworks", detail: "PyTorch, Pandas, NumPy" },
+                { name: "AI Technologies", detail: "LLMs (Qwen), LoRA, GenAI, Ollama" },
+                { name: "Data Engineering", detail: "OCR, Web Scraping, Metadata Extraction" }
             ]
         },
         {
-            category: "Immersive Engineering",
+            category: "Databases & Infrastructure",
+            icon: "☁️",
+            description: "Managing relational data and containerized deployment pipelines.",
+            skills: [
+                { name: "Databases", detail: "PostgreSQL, MySQL" },
+                { name: "DevOps & Tools", detail: "Docker, Linux/Ubuntu, Git" },
+                { name: "Testing & CI/CD", detail: "JUnit 5, Mockito, GitHub Actions" }
+            ]
+        },
+        {
+            category: "Immersive & Hardware",
             icon: "🥽",
-            description: "3+ years of commercial execution in VR and simulation.",
+            description: "3+ years of commercial execution in VR, simulation, and telemetry.",
             skills: [
-                { name: "Game Engines", detail: "Unity 3D (v5.6 to 2019+)" },
-                { name: "XR Frameworks", detail: "Oculus SDK, SteamVR, XR Toolkit" },
-                { name: "Applied Math", detail: "Raycasting, UV Texture Coordinates" }
-            ]
-        },
-        {
-            category: "Development Suite",
-            icon: "🛠️",
-            description: "Modern tools for collaborative, professional engineering.",
-            skills: [
-                { name: "Version Control", detail: "Git, GitHub Secret Scanning" },
-                { name: "Environment", detail: "Docker, Linux/Ubuntu" },
-                { name: "Project Management", detail: "Agile, Gantt Charts, Team Leadership" }
+                { name: "Game Engines", detail: "Unity 3D, XR Frameworks, Applied Math" },
+                { name: "Hardware Interfaces", detail: "Arduino IDE, Firmware, Serial Communication" },
+                { name: "Design & Auth", detail: "Figma, Auth0, Component-Based Architecture" }
             ]
         }
     ];

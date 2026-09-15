@@ -1,8 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { VscChromeClose, VscSend, VscLoading } from "react-icons/vsc";
-import { getGeminiResponse } from "../utils/gemini";
-import information from "../../information.json";
 import ReactMarkdown from 'react-markdown';
+import { askAI } from "../utils/ai";
 
 function Prompter({ showAI, setShowAI, activeFile }) {
 
@@ -19,49 +18,26 @@ function Prompter({ showAI, setShowAI, activeFile }) {
     useEffect(scrollToBottom, [messages]);
 
     const handleSend = async () => {
-        if (!prompt.trim()) return;
+        if (!prompt.trim()) return
 
-        const textToSend = `You are Anutej Sachin Kardele, speaking directly to visitors on your portfolio website. Use ONLY the following JSON data to answer questions accurately and conversationally.\n
-        IMPORTANT INSTRUCTIONS:
-        - Respond in FIRST PERSON (use "I", "my", "me" instead of "Anutej", "he", "his")
-        - Keep responses CONCISE (2-3 short paragraphs maximum)
-        - Be conversational and friendly
-        - Keep responses CONCISE and to-the-point (2-3 short paragraphs maximum)
-        - Only provide longer responses when the question specifically requires detailed technical explanations \n
-        
-        CONTEXT - Current Page: ${activeFile} \n
-
-        JSON DATA: ${JSON.stringify(information, null, 2)} \n 
-
-        CHAT HISTORY: ${messages.map(msg => `${msg.sender === 'user' ? 'User' : 'AI'}: ${msg.text}`).join('\n')} \n
-
-        USER QUESTION: ${prompt}`;
-
-        setPrompt("");
-
-        setMessages(prev => [...prev, { text: prompt, sender: 'user' }]);
-
-        // console.log("--- Sending Prompt ---");
-        // console.log("User Input:", prompt);
-
-        setIsLoading(true);
+        const question = prompt
+        setPrompt("")
+        setMessages(prev => [...prev, { text: question, sender: 'user' }])
+        setIsLoading(true)
 
         try {
-            const textResponse = await getGeminiResponse(textToSend);
-
-            // console.log("--- AI Response ---");
-            // console.log(textResponse);
-
-            setMessages(prev => [...prev, { text: textResponse, sender: 'ai' }]);
-
+            const answer = await askAI({
+                question,
+                activeFile,
+                history: messages.map(m => ({ sender: m.sender, text: m.text })),
+            })
+            setMessages(prev => [...prev, { text: answer, sender: 'ai' }])
         } catch (error) {
-            console.error("Chat Error:", error);
-            console.error("Full error details:", error.message);
-            setMessages(prev => [...prev, { text: "Error: Could not connect to AI.", sender: 'ai' }]);
+            setMessages(prev => [...prev, { text: error.message, sender: 'ai' }])
         } finally {
-            setIsLoading(false);
+            setIsLoading(false)
         }
-    };
+    }
 
     return (
         <>
