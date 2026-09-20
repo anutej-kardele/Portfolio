@@ -20,7 +20,12 @@ function App() {
   const [currentDirectory, setCurrentDirectory] = useState(fileSystem[0]);
 
   useEffect(() => {
-    getHealth().catch(() => { })
+    // Wake up the primary AI backend
+    getHealth().catch(() => { });
+
+    // Wake up the BERTweet Guard Cloud Run service from scale-to-zero
+    fetch("https://bertweet-guard-api-544105507963.us-east4.run.app/health")
+      .catch(() => { });
   }, [])
 
   return (
