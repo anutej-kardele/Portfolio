@@ -3,12 +3,12 @@ import { useState } from 'react';
 import '../../../css/content/education.css';
 import sihCert from '../../../assets/sih-certificate.jpg';
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
+import logoUrl from '../../../assets/vit.png';
 
 const Bachelors = () => {
     const [showCert, setShowCert] = useState(false);
 
     const bannerUrl = "https://upload.wikimedia.org/wikipedia/commons/4/4e/VIT_Bhopal_University_main_academic_building.jpg";
-    const logoUrl = "https://upload.wikimedia.org/wikipedia/en/thumb/c/c5/Vellore_Institute_of_Technology_seal_2017.svg/1200px-Vellore_Institute_of_Technology_seal_2017.svg.png";
     const certUrl = sihCert;
 
     const teamMembers = [

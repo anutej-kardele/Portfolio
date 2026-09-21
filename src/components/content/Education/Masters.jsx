@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../../../css/content/education.css';
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
-import logoUrl from '../../../assets/ub.png';
+import logoUrl from "../../../assets/ub.png";
 
 const Masters = () => {
     const [showProject, setShowProject] = useState(false);

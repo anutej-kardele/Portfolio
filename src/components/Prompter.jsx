@@ -87,7 +87,19 @@ function Prompter({ showAI, setShowAI, activeFile }) {
                                 className={`chat-message ${msg.sender === 'user' ? 'user-message' : 'ai-message'}`}
                             >
                                 {msg.sender === 'ai' ? (
-                                    <ReactMarkdown>{msg.text}</ReactMarkdown>
+                                    <ReactMarkdown
+                                        components={{
+                                            a: ({ ...props }) => (
+                                                <a
+                                                    {...props}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                />
+                                            )
+                                        }}
+                                    >
+                                        {msg.text}
+                                    </ReactMarkdown>
                                 ) : (
                                     msg.text
                                 )}

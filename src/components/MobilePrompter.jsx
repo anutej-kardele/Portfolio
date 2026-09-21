@@ -269,7 +269,19 @@ function MobilePrompter({ activeFile }) {
                                 className={`mobile-chat-message ${msg.sender === 'user' ? 'mobile-user-message' : 'mobile-ai-message'}`}
                             >
                                 {msg.sender === 'ai' ? (
-                                    <ReactMarkdown>{msg.text}</ReactMarkdown>
+                                    <ReactMarkdown
+                                        components={{
+                                            a: ({ ...props }) => (
+                                                <a
+                                                    {...props}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                />
+                                            )
+                                        }}
+                                    >
+                                        {msg.text}
+                                    </ReactMarkdown>
                                 ) : (
                                     msg.text
                                 )}
