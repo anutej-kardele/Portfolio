@@ -29,7 +29,7 @@ I built this portfolio to reflect the environment where developers spend most of
 
 The portfolio dynamically renders detailed architectural breakdowns of my recent work, including:
 * **OpenStream**: A full-stack microblogging REST API built with Spring Boot, PostgreSQL, and Docker.
-* **BERTweet Guard**: A text moderation inference API utilizing LoRA fine-tuning, Focal Loss, and Hugging Face integration.
+* **BERTweet Guard**: A text moderation inference API utilizing LoRA fine-tuning, Cross-Entropy, and Hugging Face integration.
 * **AI Data Extraction**: An OCR pipeline using Qwen LLMs and PostgreSQL to structure metadata from thousands of journal scans.
 
 ---
